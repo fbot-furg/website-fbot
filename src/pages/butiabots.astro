@@ -1,12 +1,9 @@
 ---
 import "@fontsource/inter/variable.css";
-import Compatibility from "~/components/compatibility.astro";
-import Awards from "~/components/awards.astro";
-import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
-import AboutUs from "~/components/about-us.astro";
 import Showcase from "~/components/showcase.astro";
-import Splash from "~/components/splash.astro";
+import { Icon } from "astro-icon";
+
 import "~/styles/index.css";
 
 const { generator, site } = Astro;
@@ -23,16 +20,16 @@ const description =
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>FBOT</title>
-    <meta name="description" content={description} />
+    <title>ButiaBOTS</title>
+    <!-- <meta name="description" content={description} /> -->
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
+    <!-- <meta property="og:title" content="Astro" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:url" content={site} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image" /> -->
 
     <!-- initialize theme -->
     <script is:inline>
@@ -63,12 +60,30 @@ const description =
   >
     <Header />
 
-    <div class="space-y-24 px-8 py-32">
-      <AboutUs />
-      <Awards />
-      <!-- <Compatibility /> -->
-      <Showcase />
+    <div class="space-y-24">
+        <section id="about-us" class="h-screen flex-1 scroll-mt-24 items-left gap-8 space-y-8 py-20">
+			<div class="flex flex-col">
+				<div class="flex flex-1 flex-column justify-center p-14 bg-white">
+					<Icon name="we_are_champions" class="h-16" />      
+				</div>
+
+				<div class="flex-1 flex-col justify-center p-14">
+					<h2 class="text-4xl font-bold pb-8">ButiaBOTS</h2>
+
+					<div class="flex">
+						<div class="basis-1/2">
+							<p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
+						</div>
+
+						<div class="basis-1/2 flex justify-center items-center">
+							<Icon name="logomark" class="h-60" />
+						</div>
+					</div>
+				</div>
+			</div>
+        </section>
+        <Showcase />
     </div>
-    <Footer />
+
   </body>
 </html>
