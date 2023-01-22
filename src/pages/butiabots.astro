@@ -1,11 +1,26 @@
 ---
 import "@fontsource/inter/variable.css";
 import Header from "~/components/header.astro";
-import Showcase from "~/components/showcase.astro";
+import ContentSection from "~/components/content-section.astro";
+import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
-
 import "~/styles/index.css";
 import Head from "~/components/head.astro";
+
+const photos = [
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+];
+
+const videos = [
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+];
 ---
 
 <!DOCTYPE html>
@@ -36,8 +51,70 @@ import Head from "~/components/head.astro";
 				</div>
 			</div>
         </section>
-        <Showcase />
+
+        <ContentSection title="Photos" id="photos">
+            <div class="flex flex-col justify-center items-center space-y-2">
+                <div class="w-100 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  { photos.map((photo) => {
+                        return (
+                            <div class="group aspect-video hover:!text-default">
+                                <figure class="relative h-full w-full overflow-hidden">
+                                    <Picture
+                                        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+                                        src={photo.src}
+                                        widths={[450, 800]}
+                                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                        alt={photo.alt}
+                                        aspectRatio="16:9"
+                                    />
+                                    <figcaption class="absolute inset-0">
+                                        <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
+                                            <p class="border border-current px-4 py-2">{photo.alt}</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        )
+                    })
+                }
+                </div>
+            </div>
+        </ContentSection>
+
+        <ContentSection title="Videos" id="videos">
+            <div class="flex flex-col justify-center items-center space-y-2">
+                <div class="w-4/5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  { videos.map((video) => {
+                        return (
+                            <figure class="relative h-full w-full overflow-hidden">
+                                <Picture
+                                    class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+                                    src={video.src}
+                                    widths={[450, 800]}
+                                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                    alt={video.alt}
+                                    aspectRatio="16:9"
+                                />
+                            </figure>
+                        )
+                    })
+                }
+                </div>
+            </div>
+        </ContentSection>
     </div>
 
   </body>
 </html>
+
+
+<!-- <figcaption class="absolute inset-0">
+    <div
+      class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
+    >
+      <h3 class="text-center font-extrabold uppercase text-xl">
+        {photo.title}
+      </h3>
+      <p class="border border-current px-4 py-2">{photo.url}</p>
+    </div>
+  </figcaption> -->
