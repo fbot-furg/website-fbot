@@ -8,12 +8,16 @@ export interface Props {
 }
 
 const { title, id, theme = 'dark' } = Astro.props;
+
+const themeClass = theme === 'dark' 
+  ? 'bg-grey-900 text-white' 
+  : 'bg-white text-gray-900';
 ---
 
 <!-- change background color based on theme prop -->
-<section id={id} class={`flex-1 scroll-mt-24 flex-col items-left gap-6 space-y-8 p-14`}>
+<section id={id} class={`flex-1 scroll-mt-24 flex-col items-left gap-6 space-y-8 p-20 ${themeClass}`}>
     <div class="flex flex-col items-left gap-4">
-        <h2 class="text-left font-extrabold tracking-tight text-6xl">{title}</h2>
+        <h2 class="font-blackops text-left tracking-tight text-6xl">{title}</h2>
     </div>
     <slot />
 </section>
