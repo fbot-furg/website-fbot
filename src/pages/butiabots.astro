@@ -26,44 +26,40 @@ const { generator, site } = Astro;
 
 <!DOCTYPE html>
 <html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
     <title>FBOT - ButiaBOTS</title>
-  </head>
-  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
-    <Header />
+</head>
+<body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <div class="">
+        <Header />
 
-    <div class="space-y-24">
-        <section id="about-us" class="h-screen flex-1 scroll-mt-24 items-left gap-8 space-y-8 py-20">
-			<div class="flex flex-col">
-				<div class="flex flex-1 flex-column justify-center p-14 bg-white">
-					<Icon name="we_are_champions" class="h-16" />      
-				</div>
+        <div class="py-9"></div>
 
-				<div class="flex-1 flex-col justify-center p-14">
-					<h2 class="text-4xl font-bold pb-8">ButiaBOTS</h2>
+        <div class="flex flex-1 justify-center items-center bg-white p-14">
+            <Icon name="we_are_champions" class="h-16" />      
+        </div>
+        
+        <ContentSection title="ButiaBOTS" id="butiabots">
+            <div class="flex">
+                <div class="basis-3/5">
+                    <p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
+                </div>
 
-					<div class="flex">
-						<div class="basis-1/2">
-							<p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
-						</div>
+                <div class="basis-2/5 flex justify-center items-center">
+                    <Icon name="logomark" class="h-60" />
+                </div>
+            </div>
+        </ContentSection>
 
-						<div class="basis-1/2 flex justify-center items-center">
-							<Icon name="logomark" class="h-60" />
-						</div>
-					</div>
-				</div>
-			</div>
-        </section>
-
-        <ContentSection title="Photos" id="photos">
+        <ContentSection title="Photos" id="photos" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-100 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  { photos.map((photo) => {
+                <div class="w-5/6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    { photos.map((photo) => {
                         return (
                             <div class="group aspect-video hover:!text-default">
                                 <figure class="relative h-full w-full overflow-hidden">
@@ -89,40 +85,54 @@ const { generator, site } = Astro;
             </div>
         </ContentSection>
 
-        <ContentSection title="Videos" id="videos">
+        <ContentSection title="Videos" id="videos" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-4/5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  { videos.map((video) => {
+                <div class="w-5/6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    { videos.map((video) => {
                         return (
-                            <figure class="relative h-full w-full overflow-hidden">
-                                <Picture
-                                    class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
-                                    src={video.src}
-                                    widths={[450, 800]}
-                                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                                    alt={video.alt}
-                                    aspectRatio="16:9"
-                                />
-                            </figure>
+                            <div class="group aspect-video hover:!text-default">
+                                <figure class="relative h-full w-full overflow-hidden">
+                                    <Picture
+                                        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+                                        src={video.src}
+                                        widths={[450, 800]}
+                                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                        alt={video.alt}
+                                        aspectRatio="16:9"
+                                    />
+                                    <figcaption class="absolute inset-0">
+                                        <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
+                                            <p class="border border-current px-4 py-2">{video.alt}</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
                         )
                     })
                 }
                 </div>
             </div>
         </ContentSection>
-    </div>
 
-  </body>
+        <ContentSection title="Rewards" id="rewards">
+            <div class="flex flex-col justify-center items-center space-y-2">
+                <p>Em Construção</p>
+            </div>
+        </ContentSection>
+
+        <ContentSection title="Members" id="members" theme="light">
+            <div class="flex flex-col justify-center items-center space-y-2">
+                <p>Em Construção</p>
+            </div>
+        </ContentSection>
+
+        <ContentSection title="Publications" id="publications">
+            <div class="flex flex-col justify-center items-center space-y-2">
+                <p>Em Construção</p>
+            </div>
+        </ContentSection>
+
+        <!-- <Footer> -->
+    </div>
+</body>
 </html>
-
-
-<!-- <figcaption class="absolute inset-0">
-    <div
-      class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
-    >
-      <h3 class="text-center font-extrabold uppercase text-xl">
-        {photo.title}
-      </h3>
-      <p class="border border-current px-4 py-2">{photo.url}</p>
-    </div>
-  </figcaption> -->

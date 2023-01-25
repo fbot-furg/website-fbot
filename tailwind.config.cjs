@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+        blackops: ["Black Ops One", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: "var(--color-primary)",
