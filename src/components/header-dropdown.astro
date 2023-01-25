@@ -1,0 +1,12 @@
+---
+import type { NavItem } from '~/types';
+
+interface Props extends NavItem {}
+
+const { title, items } = Astro.props;
+---
+<li>
+    <a class="text-sm">
+    {title}
+    </a>
+</li>

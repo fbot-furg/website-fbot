@@ -2,19 +2,20 @@
 import { Icon } from "astro-icon";
 import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
+import HeaderItem from "./header-item.astro";
+import HeaderDropdown from "./header-dropdown.astro";
 
 const navItems: Array<NavItem> = [
   { title: "About Us", url: "#about-us" },
-  { title: "Teams", url: "butiabots" },
+  { title: "Teams", items: [
+	{ title: "ButiaBOTS", url: "butiabots" },
+	{ title: "V3S", url: "V3S" },
+  ] },
   { title: "Blog", url: "#blog"},
   { title: "Partners", url: "#partners"},
   { title: "Contact", url: "#contact" },
 ];
 ---
-<!-- .fixed-header {
-  @apply fixed top-0 bottom-auto;
-  @apply border-default bg-default text-default;
-} -->
 <header id="page-header" class="fixed-header fixed top-0 bottom-auto z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 bg-default text-default">
 	<a class="flex items-center gap-3 hover:!text-default" href="#">
 		<h1 class="sr-only">FBOT</h1>
@@ -25,15 +26,15 @@ const navItems: Array<NavItem> = [
 		<div class="flex items-center gap-6">
 			<nav class="hidden sm:block">
 				<ul class="flex items-center gap-6">
-				{
-					navItems.map(({ title, url }) => (
+					{ navItems.map(({ title, url }) => (
+						title === "Teams"
+							? <HeaderDropdown title={title}/>
+							: <HeaderItem title={title} url={url} />
+					))}
+
 					<li>
-						<a class="text-sm" href={url}>
-						{title}
-						</a>
+
 					</li>
-					))
-				}
 				</ul>
 			</nav>
 			
