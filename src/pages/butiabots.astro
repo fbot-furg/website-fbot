@@ -5,6 +5,8 @@ import ContentSection from "~/components/content-section.astro";
 import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import "~/styles/index.css";
+import Head from "~/components/head.astro";
+import Footer from "~/components/footer.astro";
 
 const photos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
@@ -20,46 +22,39 @@ const videos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
-
-const { generator, site } = Astro;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="generator" content={generator} />
+  <Head title="ButiaBOTS"/>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Header />
 
-    <title>FBOT - ButiaBOTS</title>
-</head>
-<body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
-    <div class="">
-        <Header />
+    <Footer />
 
-        <div class="py-9"></div>
-
-        <div class="flex flex-1 justify-center items-center bg-white p-14">
-            <Icon name="we_are_champions" class="h-16" />      
-        </div>
-        
-        <ContentSection title="ButiaBOTS" id="butiabots">
-            <div class="flex">
-                <div class="basis-3/5">
-                    <p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
-                </div>
-
-                <div class="basis-2/5 flex justify-center items-center">
-                    <Icon name="logomark" class="h-60" />
-                </div>
+    <div class="pt-[72px]">
+        <div class="min-h-screen">
+            <div class="flex flex-1 flex-column justify-center p-14 bg-white">
+                <Icon name="we_are_champions" class="h-16" />      
             </div>
-        </ContentSection>
+
+            <ContentSection id="butiabots" title="BuiaBOTS">
+                <div class="flex">
+                    <div class="basis-1/2">
+                        <p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
+                    </div>
+
+                    <div class="basis-1/2 flex justify-center items-center">
+                        <Icon name="logomark" class="h-60" />
+                    </div>
+                </div>        
+            </ContentSection>
+        </div>
 
         <ContentSection title="Photos" id="photos" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-5/6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    { photos.map((photo) => {
+                <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  { photos.map((photo) => {
                         return (
                             <div class="group aspect-video hover:!text-default">
                                 <figure class="relative h-full w-full overflow-hidden">
@@ -87,8 +82,8 @@ const { generator, site } = Astro;
 
         <ContentSection title="Videos" id="videos" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-5/6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    { videos.map((video) => {
+                <div class="w-100 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  { videos.map((video) => {
                         return (
                             <div class="group aspect-video hover:!text-default">
                                 <figure class="relative h-full w-full overflow-hidden">
@@ -114,7 +109,7 @@ const { generator, site } = Astro;
             </div>
         </ContentSection>
 
-        <ContentSection title="Rewards" id="rewards">
+        <ContentSection title="Roadmap" id="roadmap">
             <div class="flex flex-col justify-center items-center space-y-2">
                 <p>Em Construção</p>
             </div>
@@ -131,8 +126,6 @@ const { generator, site } = Astro;
                 <p>Em Construção</p>
             </div>
         </ContentSection>
-
-        <!-- <Footer> -->
     </div>
 </body>
 </html>
