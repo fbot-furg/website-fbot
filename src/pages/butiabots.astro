@@ -29,9 +29,6 @@ const videos = [
   <Head title="ButiaBOTS"/>
   <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
     <Header />
-
-    <Footer />
-
     <div class="pt-[72px]">
         <div class="min-h-screen">
             <div class="flex flex-1 flex-column justify-center p-14 bg-white">
@@ -54,7 +51,7 @@ const videos = [
         <ContentSection title="Photos" id="photos" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
                 <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                  { photos.map((photo) => {
+                    {photos.map(photo => {
                         return (
                             <div class="group aspect-video hover:!text-default">
                                 <figure class="relative h-full w-full overflow-hidden">
@@ -74,8 +71,7 @@ const videos = [
                                 </figure>
                             </div>
                         )
-                    })
-                }
+                    })}
                 </div>
             </div>
         </ContentSection>
@@ -127,5 +123,7 @@ const videos = [
             </div>
         </ContentSection>
     </div>
+
+    <Footer />
 </body>
 </html>

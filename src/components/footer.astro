@@ -1,4 +1,5 @@
 ---
+import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import type { FooterLink } from "~/types";
 
@@ -26,32 +27,32 @@ const links: Array<FooterLink> = [
 ];
 ---
 
-<footer class="relative w-100 flex h-64 items-center justify-center">
+<footer class="relative flex h-72 items-center justify-around py-8">
 	<div class="flex flex-col">
 		<div class="flex justify-center items-center">
 			<Icon name="logomark" class="h-60" />
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-4 spacing-y-4">
-		<ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
-			{
-			links.map((link) => (
-				<li>
-				<a
-					class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4"
-					href={link.url}
-				>
-					<span class="sr-only">{link.description}</span>
-					<Icon class="h-full" name={link.icon} />
-				</a>
-				</li>
-			))
-			}
-		</ul>
+	<div class="w-1/2 flex flex-col gap-4 spacing-y-4">
+		<div class="flex flex-col gap-2 text-right">
+			<h3 class="text-xl font-bold">Get in Touch</h3>
+
+			<ul class="relative flex justify-end gap-2">
+				{ links.map((link) => (
+					<li>
+						<a class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4" href={link.url}>
+							<span class="sr-only">{link.description}</span>
+							<Icon class="h-full" name={link.icon} />
+						</a>
+					</li>
+				)) }
+			</ul>
+		</div>
 		<div class="w-100 border-2 border-slate-500"></div>
-		<div>
-			Patrocinadores
+		<div class="flex justify-center items-center h-20">
+			<!-- #TODO fix sizes -->
+			<Picture src="logo.png" alt="Poatek Logo" class="h-16" widths={[742, 186]} aspectRatio="4:1" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"/>
 		</div>
 	</div>
 </footer>

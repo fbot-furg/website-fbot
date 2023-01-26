@@ -1,13 +1,12 @@
 ---
-export interface Props {
-    title?: string;
-    url?: string;
-}
+import type { NavItem } from '~/types';
+
+interface Props extends NavItem {}
 
 const { title, url } = Astro.props;
 ---
 <li>
     <a class="text-sm" href={url}>
-    {title}
+        {title}
     </a>
 </li>
