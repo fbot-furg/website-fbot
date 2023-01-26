@@ -12,16 +12,38 @@ const photos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
+    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
 
 const videos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
+
+const timeline = [
+    {
+        year: "2018",
+        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2018']
+    }, {
+        year: "2019",
+        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2019']
+    }, {
+        year: "2020",
+        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2020']
+    }, {
+        year: "2021",
+        items: ['2° Place in the Brazilian Robotics Competition (LARC/CBR) 2021']
+    }, {
+        year: "2022",
+        items: [
+            '3° Place in the RoboCup Thailand 2022 (Open Platform League)',
+            '1° Place in the Brazilian Robotics Competition (LARC/CBR) 2022'
+        ]
+    }
+]
 ---
 
 <!DOCTYPE html>
@@ -102,12 +124,32 @@ const videos = [
                     })
                 }
                 </div>
-            </div>
+            </div> 
         </ContentSection>
 
-        <ContentSection title="Roadmap" id="roadmap">
-            <div class="flex flex-col justify-center items-center space-y-2">
-                <p>Em Construção</p>
+        <ContentSection title="Timeline" id="timeline">
+            <div class="flex justify-left space-y-2 gap-16 items-stretch">
+                <div>
+                    <div id="side-column" class="w-6 bg-orange-500 h-[calc(100%+3.5rem)]"></div>
+                </div>
+                <div class="flex justify-left items-stretch space-y-2 gap-16">
+                    <div class="flex flex-col gap-12 pb-8">
+                        {timeline.map(({ year, items }) => {
+                            let itemsList = items.map(item => {
+                                return <li class="text-base">{item}</li>
+                            })
+
+                            return (
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="font-blackops text-4xl">{year}</h3>
+                                    <ul class="list-disc space-y-2">
+                                        {itemsList}          
+                                    </ul>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         </ContentSection>
 
