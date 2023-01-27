@@ -1,20 +1,28 @@
 ---
 import { Icon } from "astro-icon";
 import ThemeSwitcher from "~/components/theme-switcher.astro";
-import type { NavItem } from "~/types";
+import type { NavItem, NavItemDropdown } from "~/types";
+import HeaderItem from "./header-item.astro";
+import HeaderDropdown from "./header-dropdown.astro";
 
-const navItems: Array<NavItem> = [
+type NavItemsType = NavItem | NavItemDropdown;
+
+const navItems: Array<NavItemsType> = [
   { title: "About Us", url: "#about-us" },
-  { title: "Teams", url: "#awards" },
+  { title: "Teams", items: [
+	{ title: "ButiaBOTS", url: "butiabots" },
+	{ title: "V3S", url: "V3S" },
+  ] },
   { title: "Blog", url: "#blog"},
   { title: "Partners", url: "#partners"},
   { title: "Contact", url: "#contact" },
 ];
+
+
+function isNavItemDropdown(item: NavItemsType): item is NavItemDropdown {
+  return "items" in item;
+}
 ---
-<!-- .fixed-header {
-  @apply fixed top-0 bottom-auto;
-  @apply border-default bg-default text-default;
-} -->
 <header id="page-header" class="fixed-header fixed top-0 bottom-auto z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 bg-default text-default">
 	<a class="flex items-center gap-3 hover:!text-default" href="#">
 		<h1 class="sr-only">FBOT</h1>
@@ -25,24 +33,15 @@ const navItems: Array<NavItem> = [
 		<div class="flex items-center gap-6">
 			<nav class="hidden sm:block">
 				<ul class="flex items-center gap-6">
-				{
-					navItems.map(({ title, url }) => (
-					<li>
-						<a class="text-sm" href={url}>
-						{title}
-						</a>
-					</li>
-					))
-				}
+					{navItems.map(item => 
+						isNavItemDropdown(item)
+							? <HeaderDropdown title={item.title} items={item.items} />
+							: <HeaderItem title={item.title} url={item.url} />
+					)}
 				</ul>
 			</nav>
 			
-			<button
-				id="open-nav-button"
-				type="button"
-				class="btn sm:hidden"
-				aria-label="Navigation"
-			>
+			<button id="open-nav-button" type="button" class="btn sm:hidden" aria-label="Navigation">
 				<Icon pack="mdi" name="menu" class="h-8" />
 			</button>
 
@@ -52,32 +51,23 @@ const navItems: Array<NavItem> = [
 		<div id="menu-modal" class="modal hidden" aria-hidden="true">
 			<div class="fixed inset-0 bg-default px-8 py-4 text-default">
 				<div class="space-y-4" role="dialog" aria-modal="true">
-				<header class="text-right">
-					<button
-						id="close-nav-button"
-						type="button"
-						class="btn"
-						aria-label="Close navigation"
-					>
-						<Icon pack="mdi" name="close" class="h-8" />
-					</button>
-				</header>
-				<div class="flex justify-center">
-					<Icon name="logomark" class="h-16" />
-				</div>
-				<nav>
-					<ul class="flex flex-col">
-					{
-						navItems.map(({ title, url }) => (
-						<li>
-							<a class="block py-4 text-center text-xl" href={url}>
-							{title}
-							</a>
-						</li>
-						))
-					}
-					</ul>
-				</nav>
+					<header class="text-right">
+						<button id="close-nav-button" type="button" class="btn" aria-label="Close navigation">
+							<Icon pack="mdi" name="close" class="h-8" />
+						</button>
+					</header>
+					<div class="flex justify-center">
+						<Icon name="logomark" class="h-16" />
+					</div>
+					<nav>
+						<ul class="flex flex-col">
+							{navItems.map(item => {
+								isNavItemDropdown(item)
+									? <HeaderDropdown title={item.title} items={item.items} />
+									: <HeaderItem title={item.title} url={item.url} />
+							})}
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>

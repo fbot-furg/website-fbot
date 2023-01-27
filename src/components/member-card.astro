@@ -1,0 +1,30 @@
+---
+import type { MemberCardProps } from '~/types';
+import { Icon } from "astro-icon";
+
+export interface Props extends MemberCardProps {}
+
+const { name, description, title, img, links } = Astro.props;
+---
+
+<figure class="flex flex-col rounded-lg p-6 border-2 border-offset">
+    <img class="w-24 h-24 rounded-full mx-auto" src={img} alt={`Member: ${name}`} width="384" height="512">
+    <figcaption class="pt-4 text-center">
+        <div class="text-orange-500 font-medium text-lg">{name}</div>
+        <div class="text-gray-500 text-md">{title}</div>
+    </figcaption>
+    <div class="pt-4 text-center">
+        <p class="text-md ">
+            {description}
+        </p>
+    </div>
+    <ul class="relative flex justify-center gap-2">
+        { links.map((link) => (
+            <li>
+                <a target="_blank" class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4 hover:text-orange-500" href={link.url}>
+                    <Icon class="h-full" name={link.icon} />
+                </a>
+            </li>
+        )) }
+    </ul>
+</figure>

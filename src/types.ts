@@ -1,15 +1,3 @@
-export interface CompatibilityItem {
-  icon: string;
-  title: string;
-  url: string;
-}
-
-export interface FeatureItem {
-  description: string;
-  icon: string;
-  title: string;
-}
-
 export interface FooterLink {
   description: string;
   icon: string;
@@ -21,8 +9,15 @@ export interface NavItem {
   url: string;
 }
 
-export interface ShowcaseSite {
+export interface NavItemDropdown {
   title: string;
-  image: ImageMetadata;
-  url: string;
+  items: NavItem[];
+}
+
+export interface MemberCardProps {
+  name: string;
+  title: string;
+  description: string;
+  img: string;
+  links: FooterLink[];
 }

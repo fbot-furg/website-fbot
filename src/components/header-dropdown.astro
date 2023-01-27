@@ -1,0 +1,34 @@
+---
+import type { NavItemDropdown } from '~/types';
+
+interface Props extends NavItemDropdown {}
+
+const { title, items } = Astro.props;
+
+
+---
+<li>
+    <div class="relative inline-block">
+        <button id="dropdown-button">{title}</button>
+        <div class="dropdown-options bg-black absolute hidden drop-shadow-sm p-2">
+            {items.map(({title, url}) =>
+                <a class="p-2 hover:bg-gray-900 hover:text-white" href={url}>{title}</a>
+            )}
+        </div>
+    </div>
+</li>
+
+<script>
+    const dropdownButton = document.querySelector("#dropdown-button");
+    const items = document.querySelector('.dropdown-options');
+
+    const toggleDropdown = () => {
+        if (!items) return;
+        items.classList.toggle('hidden');
+    }
+
+    if (dropdownButton) {
+        dropdownButton.addEventListener('click', toggleDropdown);
+        dropdownButton.addEventListener('hover', toggleDropdown);
+    }
+</script>
