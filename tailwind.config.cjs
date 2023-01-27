@@ -22,6 +22,7 @@ module.exports = {
       },
       borderColor: {
         default: "var(--color-border)",
+        offset: "var(--color-border-offset)",
       },
     },
   },

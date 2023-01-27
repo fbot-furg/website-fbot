@@ -7,6 +7,8 @@ import { Icon } from "astro-icon";
 import "~/styles/index.css";
 import Head from "~/components/head.astro";
 import Footer from "~/components/footer.astro";
+import type { MemberCardProps } from "~/types";
+import MemberCard from "~/components/member-card.astro";
 
 const photos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
@@ -43,6 +45,43 @@ const timeline = [
             '1° Place in the Brazilian Robotics Competition (LARC/CBR) 2022'
         ]
     }
+]
+
+const members: MemberCardProps[] = [
+    {
+        name: "Lucas Martins",
+        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
+        title: "Computer Egineer student",
+        img: "/photo1.jpg",
+        links: [
+            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/lucas-martins-uthi-0b0b4b1b3/", icon: "fa-brands:linkedin"},
+        ]
+    }, {
+        name: "Lucas Martins",
+        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
+        title: "Computer Egineer student",
+        img: "/photo1.jpg",
+        links: [
+            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
+        ]
+    }, {
+        name: "Lucas Martins",
+        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
+        title: "Computer Egineer student",
+        img: "/photo1.jpg",
+        links: [
+            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
+        ]
+    } , {
+        name: "Lucas Martins",
+        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
+        title: "Computer Egineer student",
+        img: "/photo1.jpg",
+        links: [
+            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
+        ]
+    } 
 ]
 ---
 
@@ -155,7 +194,13 @@ const timeline = [
 
         <ContentSection title="Members" id="members" theme="light">
             <div class="flex flex-col justify-center items-center space-y-2">
-                <p>Em Construção</p>
+                <div class="flex flex-wrap gap-6 justify-center items-center">
+                    {members.map(member => (
+                        <div class="basis-[31%]">
+                            <MemberCard {...member}/>
+                        </div>
+                    ))}
+                </div>
             </div>
         </ContentSection>
 
