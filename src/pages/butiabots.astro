@@ -10,6 +10,8 @@ import Footer from "~/components/footer.astro";
 import type { MemberCardProps } from "~/types";
 import MemberCard from "~/components/member-card.astro";
 
+const teamDescription = "The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022."
+
 const photos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
@@ -99,7 +101,7 @@ const members: MemberCardProps[] = [
             <ContentSection id="butiabots" title="BuiaBOTS">
                 <div class="flex">
                     <div class="basis-1/2">
-                        <p class="text-lg">The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022.</p>
+                        <p class="text-lg">{teamDescription}</p>
                     </div>
 
                     <div class="basis-1/2 flex justify-center items-center">
