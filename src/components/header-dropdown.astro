@@ -10,9 +10,9 @@ const { title, items } = Astro.props;
 <li>
     <div class="relative inline-block">
         <button id="dropdown-button">{title}</button>
-        <div class="dropdown-options bg-black absolute hidden drop-shadow-sm p-2">
+        <div class="dropdown-options bg-gray-900 absolute hidden drop-shadow-sm p-2 flex-col">
             {items.map(({title, url}) =>
-                <a class="p-2 hover:bg-gray-900 hover:text-white" href={url}>{title}</a>
+                <a class="p-2 hover:bg-black hover:text-white" href={url}>{title}</a>
             )}
         </div>
     </div>
@@ -24,7 +24,14 @@ const { title, items } = Astro.props;
 
     const toggleDropdown = () => {
         if (!items) return;
-        items.classList.toggle('hidden');
+        
+        if (items.classList.contains('hidden')) {
+            items.classList.remove('hidden');
+            items.classList.add('flex');
+        } else {
+            items.classList.add('hidden');
+            items.classList.remove('flex');
+        }
     }
 
     if (dropdownButton) {
