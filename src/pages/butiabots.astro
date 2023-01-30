@@ -2,17 +2,21 @@
 import "@fontsource/inter/variable.css";
 import Header from "~/components/header.astro";
 import ContentSection from "~/components/content-section.astro";
-import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import "~/styles/index.css";
 import Head from "~/components/head.astro";
 import Footer from "~/components/footer.astro";
-import type { MemberCardProps } from "~/types";
-import MemberCard from "~/components/member-card.astro";
+import type { MemberCardProps, Midia, PublicationItem, TimelineItem } from "~/types";
+import AboutTeam from "~/components/about-team.astro";
+import Photos from "~/components/photos.astro";
+import Videos from "~/components/videos.astro";
+import Members from "~/components/members.astro";
+import Timeline from "~/components/timeline.astro";
+import Publications from "~/components/publications.astro";
 
 const teamDescription = "The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022."
 
-const photos = [
+const photos: Midia[] = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
@@ -21,13 +25,13 @@ const photos = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
 
-const videos = [
+const videos: Midia[] = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
 
-const timeline = [
+const timeline: TimelineItem[] = [
     {
         year: "2018",
         items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2018']
@@ -85,6 +89,30 @@ const members: MemberCardProps[] = [
         ]
     } 
 ]
+
+const publications: PublicationItem[] = [
+    {
+        title: "Github Tutorial",
+        description: "Lorem Ipsum is simply dummy text",
+        date: "Januray, 2021", url: "google.com"
+    }, {
+        title: "Other Tile", 
+        description: "",
+        date: "Januray, 2022", url: "google.com"
+    }, {
+        title: "Publication", 
+        description: "Lorem Ipsum is simply dummy text extra text here just to see something",
+        date: "Januray, 2023", url: "google.com"
+    }, {
+        title: "Github Tutorial",
+        description: "Lorem Ipsum is simply dummy text",
+        date: "Januray, 2021", url: "google.com"
+    }, {
+        title: "Other Tile", 
+        description: "",
+        date: "Januray, 2022", url: "google.com"
+    }
+]
 ---
 
 <!DOCTYPE html>
@@ -98,119 +126,14 @@ const members: MemberCardProps[] = [
                 <Icon name="we_are_champions" class="h-16" />      
             </div>
 
-            <ContentSection id="butiabots" title="BuiaBOTS">
-                <div class="flex">
-                    <div class="basis-1/2">
-                        <p class="text-lg">{teamDescription}</p>
-                    </div>
-
-                    <div class="basis-1/2 flex justify-center items-center">
-                        <Icon name="logomark" class="h-60" />
-                    </div>
-                </div>        
-            </ContentSection>
+            <AboutTeam id="butiabots" title="ButiaBOTS" description={teamDescription} />
         </div>
 
-        <ContentSection title="Photos" id="photos" theme="light">
-            <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {photos.map(photo => {
-                        return (
-                            <div class="group aspect-video hover:!text-default">
-                                <figure class="relative h-full w-full overflow-hidden">
-                                    <Picture
-                                        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
-                                        src={photo.src}
-                                        widths={[450, 800]}
-                                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                                        alt={photo.alt}
-                                        aspectRatio="16:9"
-                                    />
-                                    <figcaption class="absolute inset-0">
-                                        <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
-                                            <p class="border border-current px-4 py-2">{photo.alt}</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-        </ContentSection>
-
-        <ContentSection title="Videos" id="videos" theme="light">
-            <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="w-100 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  { videos.map((video) => {
-                        return (
-                            <div class="group aspect-video hover:!text-default">
-                                <figure class="relative h-full w-full overflow-hidden">
-                                    <Picture
-                                        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
-                                        src={video.src}
-                                        widths={[450, 800]}
-                                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                                        alt={video.alt}
-                                        aspectRatio="16:9"
-                                    />
-                                    <figcaption class="absolute inset-0">
-                                        <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
-                                            <p class="border border-current px-4 py-2">{video.alt}</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        )
-                    })
-                }
-                </div>
-            </div> 
-        </ContentSection>
-
-        <ContentSection title="Timeline" id="timeline">
-            <div class="flex justify-left space-y-2 gap-16 items-stretch">
-                <div>
-                    <div id="side-column" class="w-6 bg-orange-500 h-[calc(100%+3.5rem)]"></div>
-                </div>
-                <div class="flex justify-left items-stretch space-y-2 gap-16">
-                    <div class="flex flex-col gap-12 pb-8">
-                        {timeline.map(({ year, items }) => {
-                            let itemsList = items.map(item => {
-                                return <li class="text-base">{item}</li>
-                            })
-
-                            return (
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="font-blackops text-4xl">{year}</h3>
-                                    <ul class="list-disc space-y-2">
-                                        {itemsList}          
-                                    </ul>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </div>
-        </ContentSection>
-
-        <ContentSection title="Members" id="members" theme="light">
-            <div class="flex flex-col justify-center items-center space-y-2">
-                <div class="flex flex-wrap gap-6 justify-center items-center">
-                    {members.map(member => (
-                        <div class="basis-[31%]">
-                            <MemberCard {...member}/>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </ContentSection>
-
-        <ContentSection title="Publications" id="publications">
-            <div class="flex flex-col justify-center items-center space-y-2">
-                <p>Em Construção</p>
-            </div>
-        </ContentSection>
+        <Photos photos={photos} />
+        <Videos videos={videos} />
+        <Timeline timeline={timeline} />
+        <Members members={members} />
+        <Publications publications={publications}/>
     </div>
 
     <Footer />

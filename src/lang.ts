@@ -15,7 +15,5 @@ function t(text: keyof typeof content) {
     }
 }
 
-console.log(t("Title"))
-
 export default t;
 

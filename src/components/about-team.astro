@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+
+export interface Props {
+    id: string;
+    title: string;
+    description: string;
+    src?: string;
+}
+
+const { id, title, description, src } = Astro.props;
+---
+
+<ContentSection id={id} title={title}>
+    <div class="flex">
+        <div class="basis-1/2">
+            <p class="text-lg">{description}</p>
+        </div>
+
+        <div class="basis-1/2 flex justify-center items-center">
+            <Icon name="logomark" class="h-60" />
+        </div>
+    </div>        
+</ContentSection>

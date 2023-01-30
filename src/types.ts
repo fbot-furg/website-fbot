@@ -21,3 +21,20 @@ export interface MemberCardProps {
   img: string;
   links: FooterLink[];
 }
+
+export interface Midia {
+  src: string;
+  alt: string;
+}
+
+export interface TimelineItem {
+  year: string;
+  items: string[];
+}
+
+export interface PublicationItem {
+  title: string;
+  description: string;
+  date: string;
+  url: string;
+}

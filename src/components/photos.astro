@@ -1,0 +1,39 @@
+---
+import { Picture } from "@astrojs/image/components";
+import ContentSection from "~/components/content-section.astro";
+import type { Midia } from "~/types";
+
+export interface Props {
+    photos: Midia[]
+}
+
+const { photos } = Astro.props
+---
+
+<ContentSection title="Photos" id="photos" theme="light">
+    <div class="flex flex-col justify-center items-center space-y-2">
+        <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {photos.map(photo => {
+                return (
+                    <div class="group aspect-video hover:!text-default">
+                        <figure class="relative h-full w-full overflow-hidden">
+                            <Picture
+                                class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+                                src={photo.src}
+                                widths={[450, 800]}
+                                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                alt={photo.alt}
+                                aspectRatio="16:9"
+                            />
+                            <figcaption class="absolute inset-0">
+                                <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
+                                    <p class="border border-current px-4 py-2">{photo.alt}</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                )
+            })}
+        </div>
+    </div>
+</ContentSection>
