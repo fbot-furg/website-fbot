@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { Midia } from "~/types";
+
+export interface Props {
+    id: string;
+    title: string;
+    description: string;
+    img: Midia;
+}
+
+const { id, title, description, img } = Astro.props;
+---
+<style>
+    .hex {
+        filter: url('#goo');
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    }
+</style>
+
+<ContentSection id={id} title={title}>
+    <div class="flex gap-12">
+        <div class="basis-1/2">
+            <p class="text-base">{description}</p>
+        </div>
+
+        <div class="basis-1/2 flex justify-center items-center">
+            <div class="hex w-4/5">
+                <img src={img.src} alt={img.alt} class="hex w-full" />
+            </div>
+        </div>
+    </div>        
+</ContentSection>
+
+<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>

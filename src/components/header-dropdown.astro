@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon';
 import type { NavItemDropdown } from '~/types';
 
 interface Props extends NavItemDropdown {}
@@ -9,10 +10,13 @@ const { title, items } = Astro.props;
 ---
 <li>
     <div class="relative inline-block">
-        <button id="dropdown-button">{title}</button>
-        <div class="dropdown-options bg-black absolute hidden drop-shadow-sm p-2">
+        <button id="dropdown-button">
+            {title}
+            <Icon name="mdi:chevron-down" id="dropdown-icon" class="transition inline-block h-6"/>
+        </button>
+        <div class="transition dropdown-options bg-gray-900 absolute hidden drop-shadow-sm p-2 flex-col">
             {items.map(({title, url}) =>
-                <a class="p-2 hover:bg-gray-900 hover:text-white" href={url}>{title}</a>
+                <a class="p-2 hover:bg-black hover:text-white" href={url}>{title}</a>
             )}
         </div>
     </div>
@@ -21,10 +25,22 @@ const { title, items } = Astro.props;
 <script>
     const dropdownButton = document.querySelector("#dropdown-button");
     const items = document.querySelector('.dropdown-options');
+    const icon = document.getElementById('dropdown-icon');
 
     const toggleDropdown = () => {
         if (!items) return;
-        items.classList.toggle('hidden');
+
+        if (icon) {
+            icon.classList.toggle('rotate-180');
+        }
+        
+        if (items.classList.contains('hidden')) {
+            items.classList.remove('hidden');
+            items.classList.add('flex');
+        } else {
+            items.classList.add('hidden');
+            items.classList.remove('flex');
+        }
     }
 
     if (dropdownButton) {

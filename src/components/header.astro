@@ -8,14 +8,17 @@ import HeaderDropdown from "./header-dropdown.astro";
 type NavItemsType = NavItem | NavItemDropdown;
 
 const navItems: Array<NavItemsType> = [
-  { title: "About Us", url: "#about-us" },
-  { title: "Teams", items: [
-	{ title: "ButiaBOTS", url: "butiabots" },
-	{ title: "V3S", url: "V3S" },
-  ] },
-  { title: "Blog", url: "#blog"},
-  { title: "Partners", url: "#partners"},
-  { title: "Contact", url: "#contact" },
+	{title: "About Us", url: "/#about-us"},
+	// {title: "Teams", items: [
+	// 	{title: "ButiaBOTS", url: "butiabots"},
+	// 	{title: "FSEK" , url: "fsek"},
+	// 	{title: "Hydrone", url: "hydrone"},
+	// 	{title: "VSS", url: "vss"},
+	// ]},
+	{title: "ButiaBOTS", url: "butiabots"},
+	{title: "Blog", url: "/#blog"},
+	// {title: "Partners", url: "/#partners"},
+	{title: "Contact", url: "/#contact"},
 ];
 
 
@@ -24,7 +27,7 @@ function isNavItemDropdown(item: NavItemsType): item is NavItemDropdown {
 }
 ---
 <header id="page-header" class="fixed-header fixed top-0 bottom-auto z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 bg-default text-default">
-	<a class="flex items-center gap-3 hover:!text-default" href="#">
+	<a class="flex items-center gap-3 hover:!text-default" href="/">
 		<h1 class="sr-only">FBOT</h1>
 		<Icon name="logomark" class="h-10" />
 		<Icon name="wordmark" class="hidden h-4 sm:block" />
@@ -45,7 +48,7 @@ function isNavItemDropdown(item: NavItemsType): item is NavItemDropdown {
 				<Icon pack="mdi" name="menu" class="h-8" />
 			</button>
 
-			<ThemeSwitcher />
+			<!-- <ThemeSwitcher /> -->
 		</div>
 
 		<div id="menu-modal" class="modal hidden" aria-hidden="true">

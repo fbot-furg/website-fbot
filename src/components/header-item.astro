@@ -5,7 +5,10 @@ interface Props extends NavItem {}
 
 const { title, url } = Astro.props;
 ---
-<li>
+<li class="
+    flex justify-center items-center transition-all
+    hover:font-medium
+">
     <a class="text-sm" href={url}>
         {title}
     </a>
