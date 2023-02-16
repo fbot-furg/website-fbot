@@ -12,7 +12,7 @@ const { photos } = Astro.props
 
 <ContentSection title="Photos" id="photos" theme="light">
     <div class="flex flex-col justify-center items-center space-y-2">
-        <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {photos.map(photo => {
                 return (
                     <div class="group aspect-video hover:!text-default">

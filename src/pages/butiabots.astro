@@ -1,12 +1,11 @@
 ---
 import "@fontsource/inter/variable.css";
 import Header from "~/components/header.astro";
-import ContentSection from "~/components/content-section.astro";
 import { Icon } from "astro-icon";
 import "~/styles/index.css";
 import Head from "~/components/head.astro";
 import Footer from "~/components/footer.astro";
-import type { MemberCardProps, Midia, PublicationItem, TimelineItem } from "~/types";
+import type { MemberCardProps, Midia, YoutubeVideo, PublicationItem, TimelineItem } from "~/types";
 import AboutTeam from "~/components/about-team.astro";
 import Photos from "~/components/photos.astro";
 import Videos from "~/components/videos.astro";
@@ -15,6 +14,10 @@ import Timeline from "~/components/timeline.astro";
 import Publications from "~/components/publications.astro";
 
 const teamDescription = "The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022."
+const teamImage: Midia = {
+    src: "/doris-holding-the-bag.png",
+    alt: "Doris holding the trash bag"
+}
 
 const photos: Midia[] = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
@@ -25,10 +28,10 @@ const photos: Midia[] = [
     {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
 ];
 
-const videos: Midia[] = [
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+const videos: YoutubeVideo[] = [
+    {title: "ButiaBOTS Qualification Video Robocup@Home 2023", videoId: "qhwasmLDctc"},
+    {title: "ButiaBots qualification video - LARC/CBR 2021", videoId: "FJqwui6azaw"},
+    {title: "Poster Session Team ButiáBots - LARC/CBR 2021", videoId: "kodsnbdBBdA"},
 ];
 
 const timeline: TimelineItem[] = [
@@ -122,18 +125,18 @@ const publications: PublicationItem[] = [
     <Header />
     <div class="pt-[72px]">
         <div class="min-h-screen">
-            <div class="flex flex-1 flex-column justify-center p-14 bg-white">
-                <Icon name="we_are_champions" class="h-16" />      
+            <div class="flex flex-1 flex-column justify-center p-10 bg-white">
+                <Icon name="we_are_champions" class="h-10" />      
             </div>
 
-            <AboutTeam id="butiabots" title="ButiaBOTS" description={teamDescription} />
+            <AboutTeam id="butiabots" title="ButiaBOTS" description={teamDescription} img={teamImage} />
         </div>
 
         <Photos photos={photos} />
         <Videos videos={videos} />
         <Timeline timeline={timeline} />
-        <Members members={members} />
         <Publications publications={publications}/>
+        <Members members={members} />
     </div>
 
     <Footer />

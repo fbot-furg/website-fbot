@@ -27,6 +27,10 @@ export interface Midia {
   alt: string;
 }
 
+export interface YoutubeVideo {
+  title: string;
+  videoId: string;
+}
 export interface TimelineItem {
   year: string;
   items: string[];

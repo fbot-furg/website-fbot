@@ -10,11 +10,11 @@ const { name, description, title, img, links } = Astro.props;
 <figure class="flex flex-col p-6 border-2 border-offset">
     <img class="w-24 h-24 rounded-full mx-auto" src={img} alt={`Member: ${name}`} width="384" height="512">
     <figcaption class="pt-4 text-center">
-        <div class="text-orange-500 font-medium text-lg">{name}</div>
-        <div class="text-gray-500 text-md">{title}</div>
+        <div class="text-orange-600 font-medium text-base">{name}</div>
+        <div class="text-gray-600 text-sm">{title}</div>
     </figcaption>
     <div class="pt-4 text-center">
-        <p class="text-md ">
+        <p class="text-sm font-medium">
             {description}
         </p>
     </div>
