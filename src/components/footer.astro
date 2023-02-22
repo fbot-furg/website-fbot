@@ -1,5 +1,4 @@
 ---
-import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import type { FooterLink } from "~/types";
 
@@ -54,7 +53,7 @@ const links: Array<FooterLink> = [
 		</div>
 		<div class="w-100 border-2 border-slate-500"></div>
 		<div class="flex justify-center items-center h-20">
-			<Picture src="logo.png" alt="Poatek Logo" class="h-8 md:h-16" widths={[742, 186]} aspectRatio="4:1" sizes="(min-width: 1024px) 33vw"/>
+			<img src="logo.png" alt="Poatek Logo" class="h-8 md:h-16" />
 		</div>
 	</div>
 </footer>
