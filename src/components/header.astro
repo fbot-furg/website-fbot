@@ -1,13 +1,27 @@
 ---
 import { Icon } from "astro-icon";
-import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem, NavItemDropdown } from "~/types";
 import HeaderItem from "./header-item.astro";
 import HeaderDropdown from "./header-dropdown.astro";
+import HeaderItemResponsive from "./header-item-responsive.astro";
 
 type NavItemsType = NavItem | NavItemDropdown;
 
 const navItems: Array<NavItemsType> = [
+	{title: "About Us", url: "/#about-us"},
+	// {title: "Teams", items: [
+	// 	{title: "ButiaBOTS", url: "butiabots"},
+	// 	{title: "FSEK" , url: "fsek"},
+	// 	{title: "Hydrone", url: "hydrone"},
+	// 	{title: "VSS", url: "vss"},
+	// ]},
+	{title: "ButiaBOTS", url: "butiabots"},
+	{title: "Blog", url: "/#blog"},
+	// {title: "Partners", url: "/#partners"},
+	{title: "Contact", url: "/#footer"},
+];
+
+const navItems2: Array<NavItemsType> = [
 	{title: "About Us", url: "/#about-us"},
 	// {title: "Teams", items: [
 	// 	{title: "ButiaBOTS", url: "butiabots"},
@@ -53,60 +67,76 @@ function isNavItemDropdown(item: NavItemsType): item is NavItemDropdown {
 
 		<div id="menu-modal" class="modal hidden" aria-hidden="true">
 			<div class="fixed inset-0 bg-default px-8 py-4 text-default">
-				<div class="space-y-4" role="dialog" aria-modal="true">
+				<div class="space-y-8" role="dialog" aria-modal="true">
 					<header class="text-right">
-						<button id="close-nav-button" type="button" class="btn" aria-label="Close navigation">
+						<button
+							id="close-nav-button"
+							type="button"
+							class="btn"
+							aria-label="Close navigation"
+						>
 							<Icon pack="mdi" name="close" class="h-8" />
 						</button>
 					</header>
+
 					<div class="flex justify-center">
 						<Icon name="logomark" class="h-16" />
 					</div>
 					<nav>
-						<ul class="flex flex-col">
-							{navItems.map(item => {
+						<ul class="flex flex-col gap-8">
+							{navItems.map(item => 
 								isNavItemDropdown(item)
 									? <HeaderDropdown title={item.title} items={item.items} />
-									: <HeaderItem title={item.title} url={item.url} />
-							})}
+									: <HeaderItemResponsive title={item.title} url={item.url} />
+							)}
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </header>
 
 <script>
-	import MicroModal from "micromodal";
-	import invariant from "tiny-invariant";
-  
-	const menuModalId = "menu-modal";
-  
-	const menu = document.querySelector(`#${menuModalId} ul`);
-	const openNavButton = document.querySelector("#open-nav-button");
-	const closeNavButton = document.querySelector("#close-nav-button");
+  import MicroModal from "micromodal";
+  import invariant from "tiny-invariant";
 
-	invariant(menu, "Menu element not found");
-	invariant(openNavButton, "Open navigation button not found");
-	invariant(closeNavButton, "Close navigation button not found");
-  
-	const openMenu = () => {
-	  	MicroModal.show(menuModalId, { disableScroll: true });
-	};
-  
-	const closeMenu = () => {
-	  	MicroModal.close(menuModalId);
-	};
-  
-	openNavButton.addEventListener("click", openMenu);
-	closeNavButton.addEventListener("click", closeMenu);
-  
-	menu.addEventListener("click", (event) => {
-		if ((event.target as HTMLElement).tagName === "A") {
-			closeMenu();
-		}
-	});
+  const menuModalId = "menu-modal";
+  const header = document.querySelector("#page-header") as HTMLElement;
+  const page = document.documentElement;
+//   const menu = document.querySelector(`#${menuModalId} ul`);
+  const openNavButton = document.querySelector("#open-nav-button");
+  const closeNavButton = document.querySelector("#close-nav-button");
+
+  invariant(header, "header should not be null");
+//   invariant(menu, "menu should not be null");
+  invariant(openNavButton, "openNavButton should not be null");
+  invariant(closeNavButton, "closeNavButton should not be null");
+
+  const openMenu = () => {
+    MicroModal.show(menuModalId, { disableScroll: true });
+	document.querySelector(`#${menuModalId}`)?.classList.remove("hidden");
+  };
+
+  const closeMenu = () => {
+    MicroModal.close(menuModalId);
+	document.querySelector(`#${menuModalId}`)?.classList.add("hidden");
+  };
+
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
+
+  document.addEventListener("scroll", () => {
+    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+    header.classList.toggle("fixed-header", d < 0);
+  });
+
+//   menu.addEventListener("click", (event) => {
+//     if ((event.target as HTMLElement).tagName === "A") {
+//       closeMenu();
+//     }
+//   });
 </script>
 
 <noscript>
