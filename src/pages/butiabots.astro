@@ -20,12 +20,12 @@ const teamImage: Midia = {
 }
 
 const photos: Midia[] = [
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 1"},
-    {src: "/photo1.jpg", alt: "ButiaBOTS 2021 - 2"},
+    {src: "butiabots/galery1.jpg", alt: "ROBOCUP - 2022"},
+    {src: "butiabots/galery2.jpeg", alt: "CBR/LARC - 2019"},
+    {src: "butiabots/galery3.jpg", alt: "RoboPampa 2022"},
+    {src: "butiabots/galery4.jpg", alt: "CBR/LARC - 2022"},
+    {src: "butiabots/galery5.jpg", alt: "CBR/LARC - 2019"},
+    {src: "butiabots/galery6.jpg", alt: "ROBOCUP - 2022"},
 ];
 
 const videos: YoutubeVideo[] = [
@@ -37,7 +37,10 @@ const videos: YoutubeVideo[] = [
 const timeline: TimelineItem[] = [
     {
         year: "2018",
-        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2018']
+        items: [
+            '3° Place in the Brazilian Robotics Competition (LARC/CBR) 2018',
+            'Roboweek 2018'
+        ]
     }, {
         year: "2019",
         items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2019']
@@ -51,69 +54,180 @@ const timeline: TimelineItem[] = [
         year: "2022",
         items: [
             '3° Place in the RoboCup Thailand 2022 (Open Platform League)',
-            '1° Place in the Brazilian Robotics Competition (LARC/CBR) 2022'
+            '1° Place in the Brazilian Robotics Competition (LARC/CBR) 2022',
+            'RoboPampa 2022 | Semana trinacional de la robótica'
         ]
     }
 ]
 
 const members: MemberCardProps[] = [
     {
-        name: "Lucas Martins",
-        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
-        title: "Computer Egineer student",
-        img: "/photo1.jpg",
+        img: "/profiles/Drews.jpg",
+        name: "Paulo Lilles Drews Jr.",
+        title: "Team coordinator",
+        description: "Professor at FURG's Centro de Ciências Computacionais, Computer Science (M.Sc, D.Sc)",        
         links: [
-            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
-            {description: "linkedin", url: "https://www.linkedin.com/in/lucas-martins-uthi-0b0b4b1b3/", icon: "fa-brands:linkedin"},
+            {description: "profile", url: "http://www.paulo.c3.furg.br/", icon: "fa-brands:linkedin"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/paulo-drews-jr-29ba6125/", icon: "fa-solid:user-circle"},
         ]
     }, {
-        name: "Lucas Martins",
-        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
-        title: "Computer Egineer student",
-        img: "/photo1.jpg",
+        img: "/profiles/Rodrigo.jpg",
+        name: "Rodrigo Guerra",
+        title: "Team coordinator",
+        description: "Assoc. Professor at UFSM, Control and Automation Engineering (BSc), Computer Vision (MSc), and Robotics (PhD)",        
         links: [
+            {description: "profile", url: "http://lattes.cnpq.br/4292452867996496", icon: "fa-brands:linkedin"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/tioguerra", icon: "fa-solid:user-circle"},
+        ]
+    }, {
+        
+        img: "/profiles/Alisson.jpeg",
+        name: "Alisson Kolling",
+        title: "Automation Egineer student (UFSM)",
+        description: "Federal University of Santa Maria student. Also a member of TauraBots.",
+        links: [
+            {description: "linkedin", url: "https://www.linkedin.com/in/%C3%A1lisson-kolling-63a86a16a/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/alikolling", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Cris.jpeg",
+        name: "Cris Lima Froes",
+        title: "Computer Egineer student",
+        description: "Scholarship holder of the AeroScan project, working in data processing.",
+        links: [
+            {description: "linkedin", url: "https://www.linkedin.com/in/cris-lima-froes-73604816b/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/crislmfroes", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Emilly.jpeg",
+        name: "Emilly Lamotte",
+        title: "Automation Egineer student",
+        description: "Technician in Industrial Automation, scholarship holder in the Refinery 4.0 project promoted by iTec/FURG-Embrapii.",
+        links: [
+            {description: "instagram", url: "https://www.instagram.com/emilly_lamotte/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/emillylamotte", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/emillylamotte", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Igor.jpeg",
+        name: "Igor Maurell",
+        title: "M.Sc Computer Engineering",
+        description: "Computer Engineer, leader of 3D data processing in AeroScan project.",
+        links: [
+            {description: "instagram", url: "https://www.instagram.com/igormaurell/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/igor-maurell-848596185/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/igormaurell", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Jardel.jpeg",
+        name: "Jardel Dyonisio",
+        title: "Automation Egineer student",
+        description: "Scholarship holder in the Photometry project for identification of red rice in seeds.",
+        links : [
+            {description: "instagram", url: "https://www.instagram.com/jsdyon/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/jardeldyonisio/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/Dyon16", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Joao.jpeg",
+        name: "João Francisco Lemos",
+        title: "Automation Egineer student",
+        description: "Scholarship holder in the ANP Human Resources Program - PRH-22.",
+        links : [
+            {description: "instagram", url: "https://www.instagram.com/jotafranciz/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/joaoflemos", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/Jfsslemos", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Marina.jpeg",
+        name: "Marina Rocha",
+        title: "Automation Egineer student",
+        description: "Technician in Industrial Automation.",
+        links : [
+            {description: "github", url: "https://github.com/MarinaZRocha", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Pedro.jpeg",
+        name: "Pedro Corçaque",
+        title: "Automation Egineer student",
+        description: "Scholarship holder in the ANP Human Resources Program - PRH-22.",
+        links : [
+            {description: "instagram", url: "https://www.instagram.com/pedrocorcaque/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/pedrocorcaque/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/PedroCorcaque", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Andre.jpeg",
+        name: "André Maurell",
+        title: "Computer Egineer student",
+        description: "Scholarship holder in the Lognav project, specializing in Front-end development",
+        links : [
+            {description: "instagram", url: "https://www.instagram.com/andremaurell/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/andré-maurell-19328b240/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/andremaurell", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Kich.jpeg",
+        name: "Vitor Kich",
+        title: "Computer Egineer student (UFSM)",
+        description: "Scholarship holder in the mobile robot navigation project using deep reinforcement learning.",
+        links : [
+            {description: "profile", url: "https://www.versusai.org/victor", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/victorkich", icon: "fa-brands:github"},
+        ]
+    }, {
+        img: "/profiles/Lucas.jpeg",
+        name: "Lucas Martins",
+        title: "Computer Egineer student",
+        description: "Working in the FSEK and VSSS categories.",
+        links : [
+            {description: "linkedin", url: "https://www.linkedin.com/in/lucas-martins-dos-santos-85aa65185/", icon: "fa-brands:linkedin"},
             {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
         ]
     }, {
-        name: "Lucas Martins",
-        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
-        title: "Computer Egineer student",
-        img: "/photo1.jpg",
-        links: [
-            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
+        img: "/profiles/Murilo.jpeg",
+        name: "Murilo Cabral",
+        title: "Information Systems student",
+        description: "Participant of the FBOT robotics team in the @home category.",
+        links : [
+            {description: "instagram", url: "https://www.instagram.com/murilo0f/", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/murilo0f/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/brinkerhof", icon: "fa-brands:github"},
         ]
-    } , {
-        name: "Lucas Martins",
-        description: "Member of the FBOT robotics team, also working on the FSEK and VSSS categories.",
-        title: "Computer Egineer student",
-        img: "/photo1.jpg",
-        links: [
-            {description: "github", url: "https://github.com/LucasMartinsUthi", icon: "fa-brands:github"},
-        ]
-    } 
+    }
 ]
 
 const publications: PublicationItem[] = [
     {
-        title: "Github Tutorial",
-        description: "Lorem Ipsum is simply dummy text",
-        date: "Januray, 2021", url: "google.com"
+        title: "GitHub ButiaBots",
+        description: "Public contributions of ButiaBots Team",
+        date: "", url: "https://github.com/butia-bots"
     }, {
-        title: "Other Tile", 
+        title: "Team Description Paper",
+        description: "LARC/CBR 2022 RoboCup@Home",
+        date: "2022", url: "https://drive.google.com/file/d/1IFcNxrehfH0oAJZ1qMLu5pbDlJwZ6j3X/view"
+    }, {
+        title: "Jubileo",
+        description: "Framework for Research in Human-Robot Social Interaction",
+        date: "Sep, 2022", url: "https://arxiv.org/abs/2209.13509"
+    }, {
+        title: "Object Recognition",
+        description: "Tutorial - Object Recognition with RoboFlow, CVAT and Yolo (LARC 2021",
+        date: "October, 2021", url: "https://www.youtube.com/watch?v=2DjFpyn6S8Q",
+        tag: "tutorial"
+    }, {
+        title: "The Improvement Of The Domestic Robot DoRIS", 
         description: "",
-        date: "Januray, 2022", url: "google.com"
+        date: "July 15, 2021", url: "https://www.even3.com.br/anais/brahurbrasero/384160-the-improvement-of-the-domestic-robot-doris/"
+    },  {
+        title: "Face Recognition", 
+        description: "Tutorial - Face Recognition with OpenFace (LARC 2020)",
+        date: "November, 2020", url: "https://www.youtube.com/watch?v=vyrDsGSwL9w",
+        tag: "tutorial"
     }, {
-        title: "Publication", 
-        description: "Lorem Ipsum is simply dummy text extra text here just to see something",
-        date: "Januray, 2023", url: "google.com"
-    }, {
-        title: "Github Tutorial",
-        description: "Lorem Ipsum is simply dummy text",
-        date: "Januray, 2021", url: "google.com"
-    }, {
-        title: "Other Tile", 
+        title: "General Aspects and Perception of the Domestic Robot DoRIS", 
         description: "",
-        date: "Januray, 2022", url: "google.com"
+        date: "April, 2019", url: "https://fei.edu.br/brahurbrasero2019/Proceedings_BRAHUR_BRASERO_2019.pdf"
     }
 ]
 ---
@@ -142,3 +256,4 @@ const publications: PublicationItem[] = [
     <Footer />
 </body>
 </html>
+

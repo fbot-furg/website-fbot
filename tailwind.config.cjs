@@ -15,6 +15,7 @@ module.exports = {
       textColor: {
         default: "var(--color-text)",
         offset: "var(--color-text-offset)",
+        dark: "var(--color-text-dark)",
       },
       backgroundColor: {
         default: "var(--color-background)",
@@ -29,5 +30,7 @@ module.exports = {
   corePlugins: {
     fontSize: false,
   },
-  plugins: [require("tailwindcss-fluid-type")],
+  plugins: [
+    require("tailwindcss-fluid-type"),
+  ],
 };

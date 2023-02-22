@@ -11,10 +11,10 @@ const { members } = Astro.props
 ---
 
 <ContentSection title="Members" id="members" theme="light">
-    <div class="flex flex-col justify-center items-center space-y-2">
-        <div class="flex flex-wrap gap-6 justify-center items-center">
+    <div class="flex flex-col justify-center items-stretch space-y-2">
+        <div class="flex flex-wrap gap-6 justify-center items-strech">
             {members.map(member => (
-                <div class="basis-[31%]">
+                <div class="flex  basis-auto md:basis-[31%]">
                     <MemberCard {...member}/>
                 </div>
             ))}

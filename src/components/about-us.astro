@@ -13,8 +13,8 @@ import { Icon } from "astro-icon";
 
         <p class="text-left font-extrabold text-xl px-10">
             A initiative made by the Universidade Federal do Rio Grande 
-            <span class="text-primary">automation</span> and 
-            <span class="text-primary">intelligent robotics</span> group. 
+            <span class="text-orange-500">automation</span> and 
+            <span class="text-orange-500">intelligent robotics</span> group. 
             Having, at first, a mobile and autonomous robot team, to participate in robot soccer championships in the small size category.
         </p>
     </div>
@@ -24,3 +24,24 @@ import { Icon } from "astro-icon";
     </div>
 
 </section>
+
+<style>
+    .hex {
+        filter: url('#goo');
+    }
+  
+    .hex img {
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    }
+</style>
+
+<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
+
+

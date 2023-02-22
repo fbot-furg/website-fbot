@@ -15,7 +15,7 @@ const { photos } = Astro.props
         <div class="w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {photos.map(photo => {
                 return (
-                    <div class="group aspect-video hover:!text-default">
+                    <div class="group aspect-video hover:text-dark">
                         <figure class="relative h-full w-full overflow-hidden">
                             <Picture
                                 class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
@@ -27,7 +27,7 @@ const { photos } = Astro.props
                             />
                             <figcaption class="absolute inset-0">
                                 <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
-                                    <p class="border border-current px-4 py-2">{photo.alt}</p>
+                                    <p class="border-2 border-current px-4 py-2 font-medium">{photo.alt}</p>
                                 </div>
                             </figcaption>
                         </figure>

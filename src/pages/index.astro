@@ -5,9 +5,58 @@ import Header from "~/components/header.astro";
 import Head from "~/components/head.astro";
 import AboutUs from "~/components/about-us.astro";
 import "~/styles/index.css";
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon";
+import Blog from "~/components/blog.astro";
 
+const teams = [
+  {
+    name: "FSEK", src:"/teams/fsek.png",
+    description: "The IEEE standard educational kits, previously known as IEEE LEGO, has as goal provide a stimulant challenge to the college students who needs to build autonomous robots using the education kits approved by the competition. Currently the team uses the LEGO mindstorm education kit, which uses the EV3 to accomplish the proposed challenge. With an easy learning programming, SEK is a great entrance door for the students who would like to join the robotics environment. The peaces variety disposed in the kit allows many assemblies, that depends only of what the challenge request."
+  }, {
+    name: "FURGBOL", src:"/teams/furgbol.png",
+    description: "Category especified by Robocup, consists in robot soccer, with limited size up to 180mm of diameter by, approximately, 150mm height. As important characteristics to a better performance of the robots we have omnidirectionality, using special wheels structure with two degrees of freedom, it allows move around without any restriction. The architecture is basically in the integration of a algorithm for decision making that since image segmentation and object localization in open field; a communication module, to data transfer between the central computer and the robots; and embedded control, which includes all the hardware parts: mechanics and robots eletronics.",
+  }, {
+    name: "VSSS", src:"/teams/vsss.png",
+    description: "The Very Small Size Soccer category, from IEEE, consists in two team facing each other with a team of three robots up to 75mm in every dimension playing a soccer game in a totally autonomous method. The computer process the image from a video camera placed above the field and command the robots, that way, being able to focus more on a more thorough eletronics and working a lot with computer vision, besides utilize communication protocol by radio.",
+  }, {
+    name: "ButiaBOTS", src:"/teams/butia.png",
+    description: "The category consist in develop autonomous robots integrated with services and assistant technologies to perform tasks in a domestic environment. Our robot, Doris (Domestic Robotic Intelligent System), is a partnership between Universidade Federal do Rio Grande (FURG) and Universidade Federal de Santa Maria (UFSM). The robot, during the competition, has to go through a series of tasks to evaluate it's capabilities and performance in activities that requires the concepts of human-machine colaboration and interaction, recognize and manipulate objects, navigate in a dinamic environment and computer vision, all of that in a realistic and non padronized domestic place.",
+    url: "/butiabots"
+  }, {
+    name: "Hydrone", src:"/teams/hydrone.png",
+    description: "The desafio de robótica Petrobras category is composed by many tasks to be performed by a autonomous unmanned aerial vehicle, inside a arena that simulate a real offshore petroleum platform. During the competition, the drone must be able, through embedded online intelligence, to maintain a stable flight, navigate, auto-localize in the environment, base detection, functional sensors, analyze QRcode blocks, land and manipulate the identified blocks, all of that safely in the desired spot, among other tasks. Our Hydrone vehicle is a result of the partnership between the Universidade Federal do Rio Grande (FURG) and the Universidade Federal de Minas Gerais (UFMG).",
+  },
+]
+
+const posts = [
+    {
+        title: "GitHub ButiaBots",
+        description: "Public contributions of ButiaBots Team",
+        date: "", url: "https://github.com/butia-bots"
+    }, {
+        title: "Visual-based Autonomous Unmanned Aerial Vehicle for Inspection in Indoor Environments",
+        description: "",
+        date: "January, 2021", url: "https://ieeexplore.ieee.org/abstract/document/9307024"
+    }, {
+        title: "A Study on Configuration of Propellers for Multirotor-like Hybrid Aerial-Aquatic Vehicles",
+        description: "",
+        date: "February 2020", url: "https://ieeexplore.ieee.org/abstract/document/8981667"
+    }, {
+        title: "A Comparative Study on Sigma-Point Kalman Filters for Trajectory Estimation of Hybrid Aerial-Aquatic Vehicles",
+        description: "",
+        date: "January, 2019", url: "https://ieeexplore.ieee.org/abstract/document/8593556"
+    }, {
+        title: "Attitude control for an Hybrid Unmanned Aerial Underwater Vehicle: A robust switched strategy with global stability",
+        description: "",
+        date: "July, 2015", url: "https://ieeexplore.ieee.org/abstract/document/7139029"
+    }, {
+        title: "Hybrid Unmanned Aerial Underwater Vehicle: Modeling and simulation",
+        description: "",
+        date: "November, 2014", url: "https://ieeexplore.ieee.org/abstract/document/6943220"
+    }
+]
 ---
-
 <!DOCTYPE html>
 <html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <Head />
@@ -17,7 +66,37 @@ import "~/styles/index.css";
     <div class="space-y-24 px-8 py-32">
       <AboutUs />
     </div>
+
+    <ContentSection title="Teams" id="teams" theme="light">
+      <div class="flex flex-col justify-center items-center space-y-2">
+        <div class="w-full flex flex-col gap-24">
+          {teams.map(team => {
+              return (
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 gap-8 md:gap-24">
+                    <img class="w-64 h-64" src={team.src} alt={team.name} />
+
+                    <div class="flex flex-col gap-8 md:pr-12">
+                      <div class="flex flex-col items-start md:flex-row justify-between md:items-center">
+                        <h3 class="font-blackops text-4xl font-bold">{team.name}</h3>
+                        { !!team.url ? (
+                            <a href={team.url} class="flex justify-center items-center gap-2 bg-orange-500 p-4 h-8 text-default">
+                                <span class="text-xs font-bold">Read More</span>
+                                <Icon class="h-6" name="ph:arrow-square-up-right-fill" />
+                            </a>
+                          ) : null }
+                      </div>
+                      <p class="text-justify text-md">{team.description}</p>
+                    </div>
+                </div>
+              )
+          })}
+        </div>
+      </div>
+    </ContentSection>
+
+    <Blog posts={posts}/>
     
     <Footer />
   </body>
 </html>
+
