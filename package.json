@@ -21,6 +21,7 @@
     "prettier-plugin-astro": "^0.7.0",
     "prettier-plugin-tailwindcss": "^0.2.0",
     "rimraf": "^3.0.2",
+    "tailwind-scrollbar": "^2.1.0",
     "tailwindcss-fluid-type": "^2.0.3"
   },
   "dependencies": {

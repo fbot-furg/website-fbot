@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon";
 import ContentSection from "~/components/content-section.astro";
 import type { Midia } from "~/types";
 
@@ -15,19 +14,22 @@ const { id, title, description, img } = Astro.props;
 <style>
     .hex {
         filter: url('#goo');
+    }
+
+    .hex img {
         clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
     }
 </style>
 
 <ContentSection id={id} title={title}>
-    <div class="flex gap-12">
+    <div class="flex gap-12 flex-col md:flex-row">
         <div class="basis-1/2">
-            <p class="text-base">{description}</p>
+            <p class="text-base text-justify md:text-left">{description}</p>
         </div>
 
         <div class="basis-1/2 flex justify-center items-center">
             <div class="hex w-4/5">
-                <img src={img.src} alt={img.alt} class="hex w-full" />
+                <img src={img.src} alt={img.alt} class="w-full" />
             </div>
         </div>
     </div>        

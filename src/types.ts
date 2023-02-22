@@ -41,4 +41,5 @@ export interface PublicationItem {
   description: string;
   date: string;
   url: string;
+  tag?: 'tutorial' | 'paper';
 }

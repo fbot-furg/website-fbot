@@ -5,40 +5,43 @@ import type { FooterLink } from "~/types";
 
 const links: Array<FooterLink> = [
 	{
-		url: "https://astro.build/",
-		description: "Astro's official website",
+		url: "/",
+		description: "Home",
 		icon: "mdi:home",
+	}, {
+		url: "https://www.facebook.com/furgbot/",
+		description: "Facebook",
+		icon: "fa-brands:facebook",
+	}, {
+		url: "https://www.instagram.com/furgbot/",
+		description: "Instagram",
+		icon: "fa-brands:instagram",
 	},
 	{
-		url: "https://github.com/mhyfritz/astro-landing-page",
-		description: "View source on GitHub",
-		icon: "fa-brands:github-alt",
+		url: "https://www.linkedin.com/company/equipe-de-rob%C3%B3tica-furgbot/mycompany/",
+		description: "Linkedin",
+		icon: "fa-brands:linkedin",
 	},
 	{
-		url: "https://astro.build/chat",
-		description: "Astro on Discord",
-		icon: "fa-brands:discord",
-	},
-	{
-		url: "https://twitter.com/astrodotbuild",
-		description: "Astro on Twitter",
-		icon: "fa-brands:twitter",
+		url: "https://www.youtube.com/channel/UCOcwv9vijNl2tEvIS8iMFPg",
+		description: "Youtube",
+		icon: "fa-brands:youtube",
 	},
 ];
 ---
 
-<footer class="max-w-7xl m-auto relative flex h-72 items-center justify-around py-8">
-	<div class="flex flex-col">
+<footer id="footer" class="max-w-7xl m-auto relative flex h-72 items-center justify-around py-8">
+	<div class="hidden md:flex flex-col">
 		<div class="flex justify-center items-center">
-			<Icon name="logomark" class="h-60" />
+			<Icon name="logomark" class="h-20 md:h-60" />
 		</div>
 	</div>
 
 	<div class="w-1/2 flex flex-col gap-4 spacing-y-4">
-		<div class="flex flex-col gap-2 text-right">
+		<div class="flex flex-col gap-2 text-center md:text-right">
 			<h3 class="text-xl font-bold">Get in Touch</h3>
 
-			<ul class="relative flex justify-end gap-2">
+			<ul class="relative flex justify-center md:justify-end gap-2">
 				{ links.map((link) => (
 					<li>
 						<a class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4" href={link.url}>
@@ -51,8 +54,7 @@ const links: Array<FooterLink> = [
 		</div>
 		<div class="w-100 border-2 border-slate-500"></div>
 		<div class="flex justify-center items-center h-20">
-			<!-- #TODO fix sizes -->
-			<Picture src="logo.png" alt="Poatek Logo" class="h-16" widths={[742, 186]} aspectRatio="4:1" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"/>
+			<Picture src="logo.png" alt="Poatek Logo" class="h-8 md:h-16" widths={[742, 186]} aspectRatio="4:1" sizes="(min-width: 1024px) 33vw"/>
 		</div>
 	</div>
 </footer>

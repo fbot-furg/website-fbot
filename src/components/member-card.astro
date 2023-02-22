@@ -7,18 +7,21 @@ export interface Props extends MemberCardProps {}
 const { name, description, title, img, links } = Astro.props;
 ---
 
-<figure class="flex flex-col p-6 border-2 border-offset">
-    <img class="w-24 h-24 rounded-full mx-auto" src={img} alt={`Member: ${name}`} width="384" height="512">
+<figure class="flex flex-col p-6 pb-2 border-2 border-offset justify-between">
+    <img class="w-20 h-20 mx-auto 
+        outline outline-2 outline-orange-600 outline-offset-2
+        rounded-full
+    " src={img} alt={`Member: ${name}`} >
     <figcaption class="pt-4 text-center">
         <div class="text-orange-600 font-medium text-base">{name}</div>
-        <div class="text-gray-600 text-sm">{title}</div>
+        <div class="text-gray-600 text-xs font-medium">{title}</div>
     </figcaption>
     <div class="pt-4 text-center">
         <p class="text-sm font-medium">
             {description}
         </p>
     </div>
-    <ul class="relative flex justify-center gap-2">
+    <ul class="relative flex justify-center gap-2 ">
         { links.map((link) => (
             <li>
                 <a target="_blank" class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4 hover:text-orange-500" href={link.url}>
