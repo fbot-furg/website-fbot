@@ -3,7 +3,7 @@ import type { NavItem } from '~/types';
 
 interface Props extends NavItem {}
 
-const { title, url, class } = Astro.props;
+const { title, url } = Astro.props;
 
 
 ---
@@ -11,7 +11,7 @@ const { title, url, class } = Astro.props;
     flex justify-center items-center transition-all
     hover:font-medium
 ">
-    <a class="text-sm" href={url}>
+    <a class="text-2xl" href={url}>
         {title}
     </a>
 </li>
