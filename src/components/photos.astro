@@ -1,6 +1,6 @@
 ---
-import { Picture } from "@astrojs/image/components";
 import ContentSection from "~/components/content-section.astro";
+import { Image, Picture } from '@astrojs/image/components';
 import type { Midia } from "~/types";
 
 export interface Props {
@@ -17,13 +17,8 @@ const { photos } = Astro.props
                 return (
                     <div class="group aspect-video hover:text-dark">
                         <figure class="relative h-full w-full overflow-hidden">
-                            <Picture
+                            <Image src={photo.src} alt={photo.alt}  width={1008} height={567}
                                 class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
-                                src={photo.src}
-                                widths={[450, 800]}
-                                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                                alt={photo.alt}
-                                aspectRatio="16:9"
                             />
                             <figcaption class="absolute inset-0">
                                 <div class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100">
