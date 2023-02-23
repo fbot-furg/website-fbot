@@ -13,7 +13,7 @@ import Members from "~/components/members.astro";
 import Timeline from "~/components/timeline.astro";
 import Publications from "~/components/publications.astro";
 
-const teamDescription = "The Brazilian United Team for Intelligent Automation - BUTIA was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The ButiaBots team has already participated in several RoboCup@Home competitions, including being the third best team in the Brazilian Robotics Competition (LARC/CBR) for three consecutive years (2018 - 2019 - 2020), vice champion of the Brazilian Robotics Competition (LARC/CBR) 2021, third best team in the RoboCup Thailand 2022 (Open Platform League), and current champion of the CBR/LARC 2022."
+const teamDescription = "The Brazilian United Team for Intelligent Automation - BUTIABots was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG) and Taura Bots from Universidade Federal de Santa Maria (UFSM). The team BUTIABots has already taken part in several RoboCup @Home competitions, achieving the third place in the Brazilian Robotics Competition (CBR) for three consecutive years (2018 - 2019 - 2020), being vice champion of CBR in 2021, and the third place in RoboCup Bangkok 2022 (Open Platform League). We are also the current champions of CBR 2022."
 const teamImage: Midia = {
     src: "/doris-holding-the-bag.png",
     alt: "Doris holding the trash bag"
@@ -21,45 +21,45 @@ const teamImage: Midia = {
 
 const photos: Midia[] = [
     {src: "butiabots/galery1.jpg", alt: "ROBOCUP - 2022"},
-    {src: "butiabots/galery2.jpeg", alt: "CBR/LARC - 2019"},
+    {src: "butiabots/galery2.jpeg", alt: "CBR - 2019"},
     {src: "butiabots/galery3.jpg", alt: "RoboPampa 2022"},
-    {src: "butiabots/galery4.jpg", alt: "CBR/LARC - 2022"},
-    {src: "butiabots/galery5.jpg", alt: "CBR/LARC - 2019"},
+    {src: "butiabots/galery4.jpg", alt: "CBR - 2022"},
+    {src: "butiabots/galery5.jpg", alt: "CBR - 2019"},
     {src: "butiabots/galery6.jpg", alt: "ROBOCUP - 2022"},
 ];
 
 const videos: YoutubeVideo[] = [
-    {title: "FBOT@Home (ButiaBots) - Quiz Task [Brazilian Robotics Competition 2022]", videoId: "OeLR3hdfspA"},
-    {title: "FBOT@Home (ButiaBots) - Receptionist test [Brazilian Robotics Competition 2022]", videoId: "Dcx8PXWFoLQ"},
-    {title: "FBOT@Home (ButiaBots) - Follow Me test", videoId: "fYDdPWGK1F8"},
+    {title: "FBOT@Home (BUTIABots) - Quiz Task [Brazilian Robotics Competition 2022]", videoId: "OeLR3hdfspA"},
+    {title: "FBOT@Home (BUTIABots) - Receptionist test [Brazilian Robotics Competition 2022]", videoId: "Dcx8PXWFoLQ"},
+    {title: "FBOT@Home (BUTIABots) - Follow Me test", videoId: "fYDdPWGK1F8"},
     {title: "FBOT@Home - Manupilation (2021)", videoId: "s_cjBec57qQ"},
-    {title: "FBOT@Home (ButiaBots) DoRIS Robot - Object Recognition With Yolo V4 (2021)", videoId: "IV_c_WMsi-A"},
-    {title: "FBOT@Home (ButiaBots) DoRIS Robot - Simulation Go and Get It test (2021)", videoId: "MmouADLd1pI"},
-    {title: "ButiaBots qualification video - LARC/CBR 2021", videoId: "FJqwui6azaw"},
-    {title: "Poster Session Team ButiáBots - LARC/CBR 2021", videoId: "kodsnbdBBdA"},
+    {title: "FBOT@Home (BUTIABots) DoRIS Robot - Object Recognition With Yolo V4 (2021)", videoId: "IV_c_WMsi-A"},
+    {title: "FBOT@Home (BUTIABots) DoRIS Robot - Simulation Go and Get It test (2021)", videoId: "MmouADLd1pI"},
+    {title: "BUTIABots qualification video - CBR 2021", videoId: "FJqwui6azaw"},
+    {title: "Poster Session Team ButiáBots - CBR 2021", videoId: "kodsnbdBBdA"},
 ];
 
 const timeline: TimelineItem[] = [
     {
         year: "2018",
         items: [
-            '3° Place in the Brazilian Robotics Competition (LARC/CBR) 2018',
+            '3° Place in the Brazilian Robotics Competition (CBR) 2018',
             'Roboweek 2018'
         ]
     }, {
         year: "2019",
-        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2019']
+        items: ['3° Place in the Brazilian Robotics Competition (CBR) 2019']
     }, {
         year: "2020",
-        items: ['3° Place in the Brazilian Robotics Competition (LARC/CBR) 2020']
+        items: ['3° Place in the Brazilian Robotics Competition (CBR) 2020']
     }, {
         year: "2021",
-        items: ['2° Place in the Brazilian Robotics Competition (LARC/CBR) 2021']
+        items: ['2° Place in the Brazilian Robotics Competition (CBR) 2021']
     }, {
         year: "2022",
         items: [
             '3° Place in the RoboCup@Home Bangkok 2022 (Open Platform League)',
-            '1° Place in the Brazilian Robotics Competition (LARC/CBR) 2022',
+            '1° Place in the Brazilian Robotics Competition (CBR) 2022',
             'RoboPampa 2022 | Trinational Robotics Week'
         ]
     }
@@ -197,19 +197,19 @@ const members: MemberCardProps[] = [
 
 const publications: PublicationItem[] = [
     {
-        title: "GitHub ButiaBots",
-        description: "Public contributions of ButiaBots Team",
+        title: "GitHub BUTIABots",
+        description: "Public contributions of BUTIABots Team",
         date: "", url: "https://github.com/butia-bots"
     }, {
-        title: "ButiaBots Quiz Package",
+        title: "BUTIABots Quiz Package",
         description: "This package provides the ability for the robot DoRIS to answer previously known questions.",
         date: "", url: "https://github.com/butia-bots/butia_quiz"
     }, {
-        title: "ButiaBots Speech Package",
+        title: "BUTIABots Speech Package",
         description: "This package provides some tools to make the robot DoRIS speak and listen.",
         date: "", url: "https://github.com/butia-bots/butia_speech"
     }, {
-        title: "ButiaBots Butia Dataset Generation Unity",
+        title: "BUTIABots Butia Dataset Generation Unity",
         description: "This repository provides the Unity Editor project for the synthetic computer vision dataset generation tools",
         date: "", url: "https://github.com/butia-bots/butia_dataset_generation_unity"
     }, {
@@ -230,7 +230,7 @@ const publications: PublicationItem[] = [
         date: "2021", url: "https://drive.google.com/file/d/1CQ8Uy9pggwJRivyQL-UhAJOjHTxTid-m/view?usp=share_link"
     }, {
         title: "Object Recognition",
-        description: "Tutorial - Object Recognition with RoboFlow, CVAT and Yolo (LARC 2021",
+        description: "Tutorial - Object Recognition with RoboFlow, CVAT and Yolo (CBR 2021",
         date: "October, 2021", url: "https://www.youtube.com/watch?v=2DjFpyn6S8Q",
         tag: "tutorial"
     }, {
@@ -243,7 +243,7 @@ const publications: PublicationItem[] = [
         date: "2020", url: "https://drive.google.com/file/d/1A1bfNjHBTUHsVDIC5u9b8q3g45SdkRY5/view?usp=share_link"
     }, {
         title: "Face Recognition", 
-        description: "Tutorial - Face Recognition with OpenFace (LARC 2020)",
+        description: "Tutorial - Face Recognition with OpenFace (CBR 2020)",
         date: "November, 2020", url: "https://www.youtube.com/watch?v=vyrDsGSwL9w",
         tag: "tutorial"
     }, {
