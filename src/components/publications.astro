@@ -9,7 +9,7 @@ export interface Props {
 
 const { publications } = Astro.props
 ---
-<ContentSection title="Publications" id="publications">
+<ContentSection title="Publications and Contributions" id="publications">
     <div class="flex flex-col justify-center items-center space-y-2">
         <div class="w-100 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {publications.map(({title, description, date, url}) => 
