@@ -12,6 +12,31 @@
 - ♿ Accessible (as measured by https://web.dev/measure/)
 - 🔎 SEO-enabled (as measured by https://web.dev/measure/)
 
+## Dependences
+
+- Install nodejs:
+```
+sudo apt-get install nodejs
+```
+- Install dependences:
+```
+sudo apt-get install build-essential libvips libvips-dev libvips-tools
+```
+- Install version manager:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+- Close and open the terminal;
+
+- Install node 15 version:
+```
+nvm install 15
+```
+Set node version:
+```
+nvm use 15
+```
+
 ## Commands
 
 | Command                | Action                                             |
