@@ -15,5 +15,5 @@ export default defineConfig({
     ssr: {
       external: ["svgo"],
     },
-  },
+  },  
 });
