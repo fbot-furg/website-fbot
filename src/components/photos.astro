@@ -1,6 +1,7 @@
 ---
 import { createSignal } from 'solid-js';
 import ContentSection from "~/components/content-section.astro";
+import Button from "./Button.jsx";
 
 export interface Props {
     photos: Midia[]
@@ -8,11 +9,6 @@ export interface Props {
 
 const { photos } = Astro.props
 const [visible, setVisible] = createSignal(9);
-
-const showMoreImages = () => {
-    console.log("button clicked")
-    setVisible(visible() + 10);
-};
 
 ---
 
@@ -36,16 +32,8 @@ const showMoreImages = () => {
                 )
             })}
         </div>
-            <button class="botaoFoto mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Show More
-            </button>
+            <Button />
     </div>
-        <script>
-    const botoes = document.querySelectorAll('button.botaoFoto')
-        botoes.addEventListener('click', () => {
-            showMoreImages
-        })
-</script>
 </ContentSection>
 
   
