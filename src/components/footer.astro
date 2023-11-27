@@ -17,7 +17,7 @@ const links: Array<FooterLink> = [
 		icon: "fa-brands:instagram",
 	},
 	{
-		url: "https://www.linkedin.com/company/equipe-de-rob%C3%B3tica-furgbot/mycompany/",
+		url: "https://www.linkedin.com/company/fbot/",
 		description: "Linkedin",
 		icon: "fa-brands:linkedin",
 	},
@@ -29,31 +29,45 @@ const links: Array<FooterLink> = [
 ];
 ---
 
-<footer id="footer" class="max-w-7xl m-auto relative flex h-72 items-center justify-around py-8">
+<footer id="footer" class="bg-color-orange max-w-7xl m-auto relative flex h-72 items-center justify-around py-8">
 	<div class="hidden md:flex flex-col">
 		<div class="flex justify-center items-center">
-			<Icon name="logomark" class="h-20 md:h-60" />
+			<Icon name="logomark" class="h-20 md:h-52" />
 		</div>
 	</div>
 
-	<div class="w-1/2 flex flex-col gap-4 spacing-y-4">
+	<div class=" w-7/12 flex flex-col gap-4 spacing-y-4">
 		<div class="flex flex-col gap-2 text-center md:text-right">
 			<h3 class="text-xl font-bold">Get in Touch</h3>
 
 			<ul class="relative flex justify-center md:justify-end gap-2">
 				{ links.map((link) => (
 					<li>
-						<a class="flex h-16 w-16 items-center justify-center rounded-full border-1 border-current p-4" href={link.url}>
+						<a class="flex border-2 w-14 h-14 items-center justify-center border-1 border-current p-3 hover:bg-orange-500 rounded-full" href={link.url}>
 							<span class="sr-only">{link.description}</span>
-							<Icon class="h-full" name={link.icon} />
+							<Icon class="w-16" name={link.icon} />
 						</a>
 					</li>
 				)) }
 			</ul>
 		</div>
-		<div class="w-100 border-2 border-slate-500"></div>
-		<div class="flex justify-center items-center h-20">
-			<img src="logo.png" alt="Poatek Logo" class="h-8 md:h-16" />
+		<div class="border-2 border-slate-500"></div>
+		<div class="flex justify-center items-center gap-8">
+			<div class="flex gap-2 items-center justify-center">
+				<img src="PRH.svg" alt="PRH Logo" class="h-8 md:h-[4.1rem]" />
+				<img src="Refinaria.svg" alt="Refinaria Logo" class="h-8 md:h-[5rem]">
+			</div>
+			<div class="flex flex-col items-center justify-center gap-2 mt-2">
+				<img src="icourt.svg" alt="ICourt Logo" class="h-4 md:h-6" />
+				<img src="poatek.png" alt="Poatek Logo" class="h-4 md:h-6" />
+				<img src="goahead.svg" alt="ICourt Logo" class="h-4 md:h-6" />
+			</div>
+			<div class="flex flex-col items-start justify-center gap-1 mt-2">
+				<img src="c3.png" alt="ICourt Logo" class="h-4 md:h-7" />
+				<img src="FURG.svg" alt="Poatek Logo" class="h-4 md:h-6" />
+				<img src="Faurg.svg" alt="ICourt Logo" class="h-4 md:h-7 relative right-2" />
+			</div>
+			<img src="prefeitura.png" alt="Refinaria Logo" class="h-8 md:h-14">
 		</div>
 	</div>
 </footer>

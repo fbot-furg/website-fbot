@@ -11,6 +11,14 @@ import Blog from "~/components/blog.astro";
 
 const teams = [
   {
+    name: "FBOT@Home", src:"/teams/butia.png",
+    description: "The category consist in develop autonomous robots integrated with services and assistant technologies to perform tasks in a domestic environment. Our robot, DoRIS (Domestic Robotic Intelligent System), during the competition, has to go through a series of tasks to evaluate it's capabilities and performance in activities that requires the concepts of human-machine colaboration and interaction, recognize and manipulate objects, navigate in a dinamic environment and computer vision, all of that in a realistic and non padronized domestic place.",
+    url: "/butiabots"
+  }, {
+    name: "Hydrone", src:"/teams/hydrone.png",
+    description: "The desafio de robótica Petrobras category is composed by many tasks to be performed by a autonomous unmanned aerial vehicle, inside a arena that simulate a real offshore petroleum platform. During the competition, the drone must be able, through embedded online intelligence, to maintain a stable flight, navigate, auto-localize in the environment, base detection, functional sensors, analyze QRcode blocks, land and manipulate the identified blocks, all of that safely in the desired spot, among other tasks. Our Hydrone vehicle is a result of the partnership between the Universidade Federal do Rio Grande (FURG) and the Universidade Federal de Minas Gerais (UFMG).",
+  },
+  {
     name: "FSEK", src:"/teams/fsek.png",
     description: "The IEEE standard educational kits, previously known as IEEE LEGO, has as goal provide a stimulant challenge to the college students who needs to build autonomous robots using the education kits approved by the competition. Currently the team uses the LEGO mindstorm education kit, which uses the EV3 to accomplish the proposed challenge. With an easy learning programming, SEK is a great entrance door for the students who would like to join the robotics environment. The peaces variety disposed in the kit allows many assemblies, that depends only of what the challenge request."
   }, {
@@ -19,14 +27,7 @@ const teams = [
   }, {
     name: "VSSS", src:"/teams/vsss.png",
     description: "The Very Small Size Soccer category, from IEEE, consists in two team facing each other with a team of three robots up to 75mm in every dimension playing a soccer game in a totally autonomous method. The computer process the image from a video camera placed above the field and command the robots, that way, being able to focus more on a more thorough eletronics and working a lot with computer vision, besides utilize communication protocol by radio.",
-  }, {
-    name: "FBOT@Home", src:"/teams/butia.png",
-    description: "The category consist in develop autonomous robots integrated with services and assistant technologies to perform tasks in a domestic environment. Our robot, DoRIS (Domestic Robotic Intelligent System), during the competition, has to go through a series of tasks to evaluate it's capabilities and performance in activities that requires the concepts of human-machine colaboration and interaction, recognize and manipulate objects, navigate in a dinamic environment and computer vision, all of that in a realistic and non padronized domestic place.",
-    url: "/butiabots"
-  }, {
-    name: "Hydrone", src:"/teams/hydrone.png",
-    description: "The desafio de robótica Petrobras category is composed by many tasks to be performed by a autonomous unmanned aerial vehicle, inside a arena that simulate a real offshore petroleum platform. During the competition, the drone must be able, through embedded online intelligence, to maintain a stable flight, navigate, auto-localize in the environment, base detection, functional sensors, analyze QRcode blocks, land and manipulate the identified blocks, all of that safely in the desired spot, among other tasks. Our Hydrone vehicle is a result of the partnership between the Universidade Federal do Rio Grande (FURG) and the Universidade Federal de Minas Gerais (UFMG).",
-  },
+  }, 
 ]
 
 const posts = [
@@ -80,7 +81,7 @@ const posts = [
                         <h3 class="font-blackops text-4xl font-bold">{team.name}</h3>
                         { !!team.url ? (
                             <a href={team.url} class="flex justify-center items-center gap-2 bg-orange-500 p-4 h-8 text-default">
-                                <span class="text-xs font-bold">Read More</span>
+                                <span class="text-xs font-bold">Meet the team</span>
                                 <Icon class="h-6" name="ph:arrow-square-up-right-fill" />
                             </a>
                           ) : null }
@@ -93,9 +94,6 @@ const posts = [
         </div>
       </div>
     </ContentSection>
-
-    <Blog posts={posts}/>
-    
     <Footer />
   </body>
 </html>
