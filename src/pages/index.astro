@@ -81,7 +81,7 @@ const posts = [
                         <h3 class="font-blackops text-4xl font-bold">{team.name}</h3>
                         { !!team.url ? (
                             <a href={team.url} class="flex justify-center items-center gap-2 bg-orange-500 p-4 h-8 text-default">
-                                <span class="text-xs font-bold">Read More</span>
+                                <span class="text-xs font-bold">Meet the team</span>
                                 <Icon class="h-6" name="ph:arrow-square-up-right-fill" />
                             </a>
                           ) : null }
@@ -94,9 +94,6 @@ const posts = [
         </div>
       </div>
     </ContentSection>
-
-    <Blog posts={posts}/>
-    
     <Footer />
   </body>
 </html>
