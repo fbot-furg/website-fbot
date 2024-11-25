@@ -14,7 +14,7 @@ import Timeline from "~/components/timeline.astro";
 import Publications from "~/components/publications.astro";
 import Contributions from "~/components/contributions.astro";
 
-const teamDescription = "The Brazilian United Team for Intelligent Automation - FBOT@Home was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG). The team FBOT@Home has already taken part in several RoboCup @Home competitions, achieving the third place in the Brazilian Robotics Competition (CBR) for three consecutive years (2018 - 2019 - 2020), being vice champion of CBR in 2021 and the first place in the last two years (2022, 2023). Besides, we participated twice on Robocup (World Championship) where we achieving the third place in RoboCup Bangkok 2022 (Open Platform League) and ninth place in RoboCup Bordeaux 2023."
+const teamDescription = "The Brazilian United Team for Intelligent Automation - FBOT@Home was founded in 2018 by FBOT from Universidade Federal do Rio Grande (FURG). The team FBOT@Home has already taken part in several RoboCup @Home competitions, achieving the third place in the Brazilian Robotics Competition (CBR) for three consecutive years (2018 - 2019 - 2020), being vice champion of CBR in 2021 and the first place in the last three years (2022, 2023 and 2024). Besides, we participated three times on Robocup (World Championship) where we achieving the third place in RoboCup Bangkok 2022 (Open Platform League), ninth place in RoboCup Bordeaux 2023 and elenventh place on RoboCup Eindhoven 2024."
 const teamImage: Midia = {
     src: "/doris-holding-the-bag.png",
     alt: "Doris holding the trash bag"
@@ -24,20 +24,20 @@ const photos: Midia[] = [
     {src: "butiabots/galery6.jpg", alt: "ROBOCUP - 2022"},
     {src: "butiabots/galery4.jpg", alt: "CBR - 2022"},
     {src: "butiabots/galery3.jpg", alt: "RoboPampa 2022"},
-    {src: "butiabots/galery9.jpg", alt: "CBR - 2023"},
+    {src: "butiabots/galery21.jpg", alt: "CBR - 2024"},
     {src: "butiabots/galery11.jpg", alt: "CBR - 2023"},
-    {src: "butiabots/galery15.jpg", alt: "CBR - 2023"},
-    {src: "butiabots/galery16.jpg", alt: "CBR - 2023"},
+    {src: "butiabots/galery22.jpg", alt: "CBR - 2024"},
+    {src: "butiabots/galery23.jpg", alt: "CBR - 2024"},
     {src: "butiabots/galery13.jpg", alt: "CBR - 2023"},
-    {src: "butiabots/galery19.jpg", alt: "CBR - 2023"},
+    {src: "butiabots/galery24.jpg", alt: "CBR - 2024"},
 ];
 
 const videos: YoutubeVideo[] = [
+    {title: "FBOT@Home Qualification Video Robocub@Home 2025", videoId: "vgS5V2tG5CU"},
     {title: "FBOT@Home Qualification Video Robocup@Home 2023", videoId: "W0ycSahgp7Q"},
     {title: "FBOT@Home (FBOT@Home) - Quiz Task [Brazilian Robotics Competition 2022]", videoId: "OeLR3hdfspA"},
     {title: "FBOT@Home (FBOT@Home) - Receptionist test [Brazilian Robotics Competition 2022]", videoId: "Dcx8PXWFoLQ"},
     {title: "FBOT@Home (FBOT@Home) - Follow Me test", videoId: "fYDdPWGK1F8"},
-    {title: "FBOT@Home - Manupilation (2021)", videoId: "s_cjBec57qQ"},
     {title: "FBOT@Home (FBOT@Home) DoRIS Robot - Object Recognition With Yolo V4 (2021)", videoId: "IV_c_WMsi-A"},
     {title: "FBOT@Home (FBOT@Home) DoRIS Robot - Simulation Go and Get It test (2021)", videoId: "MmouADLd1pI"},
     {title: "FBOT@Home qualification video - CBR 2021", videoId: "FJqwui6azaw"},
@@ -45,6 +45,14 @@ const videos: YoutubeVideo[] = [
 ];
 
 const timeline: TimelineItem[] = [
+    {
+        year: "2024",
+        items: ['Integrates the Technical Committee of the Brazilian Robotics Competition',
+                'Integrates the Organization Committee of the RoboCup@Home Competition',
+                '11° Place in the RoboCup@Home Eindhoven 2024 (Open Platform League)',
+                '1° Place in the Brazilian Robotics Competition (CBR) 2024'
+        ]
+    },
     {
         year: "2023",
         items: ['Integrates the Technical Committee of the Brazilian Robotics Competition',
@@ -125,7 +133,7 @@ const members: MemberCardProps[] = [
         img: "/profiles/Marina.jpeg",
         name: "Marina Zanotta Rocha",
         title: "Automation Engineering Student",
-        description: "Technician in Industrial Automation and undergraduate researcher in the Atech project.",
+        description: "Technician in Industrial Automation and undergraduate researcher in the Gardener project.",
         links : [
             {description: "instagram", url: "https://www.instagram.com/marina_zrocha/", icon: "fa-brands:instagram"},
             {description: "linkedin", url: "https://www.linkedin.com/in/marina-zanotta-rocha", icon: "fa-brands:linkedin"},
@@ -151,18 +159,8 @@ const members: MemberCardProps[] = [
             {description: "linkedin", url: "https://www.linkedin.com/in/andré-maurell-19328b240/", icon: "fa-brands:linkedin"},
             {description: "github", url: "https://github.com/andremaurell", icon: "fa-brands:github"},
         ]
-    }, {
-        img: "/profiles/Murilo.jpeg",
-        name: "Murilo Cabral",
-        title: "Information Systems Student",
-        description: "Participant of the FBOT robotics team in the @home category.",
-        links : [
-            {description: "instagram", url: "https://www.instagram.com/murilo0f/", icon: "fa-brands:instagram"},
-            {description: "linkedin", url: "https://www.linkedin.com/in/murilo0f/", icon: "fa-brands:linkedin"},
-            {description: "github", url: "https://github.com/brinkerhof", icon: "fa-brands:github"},
-        ]
     },
-        {
+    {
         img: "/profiles/PedroEdom.jpeg",
         name: "Pedro Edom Nunes",
         title: "Computer Engineering Student",
@@ -216,6 +214,47 @@ const members: MemberCardProps[] = [
         ]
     },
     {
+        img: "/profiles/kristofer.jpg",
+        name: "Kristofer Stift Kappel",
+        title: "Postdoctoral Researcher",
+        description: "Bachelor and PhD in Computer Science.",
+        links: [
+            {description: "instagram", url: "https://www.instagram.com/kriskappel/", icon: "fa-brands:instagram"},
+            {description: "github", url: "https://github.com/kriskappel", icon: "fa-brands:github"},
+        ]
+    },
+        {
+        img: "/profiles/richard.jpg",
+        name: "Richard Júnio Costa de Assis",
+        title: "Computer Engineering ",
+        description: "Automation Technician and Team Leader at Augen Engenharia.",
+        links: [
+            {description: "linkedin", url: "https://br.linkedin.com/in/richard-de-assis-3a8135217", icon: "fa-brands:linkedin"},
+            {description: "github", url: "http://github.com/richassis", icon: "fa-brands:github"},
+        ]
+    },
+    {
+        img: "/profiles/jose.jpg",
+        name: "Jose David Garcia Ramos",
+        title: "Master's in Computational Modeling",
+        description: "Electronics and Telecommunications Engineer and researcher on the STIHL project.",
+        links: [
+            {description: "linkedin", url: "https://www.linkedin.com/in/jos%C3%A9-david-garc%C3%ADa-ramos-b17b88329/", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/Gardiy", icon: "fa-brands:github"},
+        ]
+    },
+    {
+        img: "/profiles/fernando.jpg",
+        name: "Fernando Piva Mendes",
+        title: "Automation Engineering Student",
+        description: "Undergraduate automation researcher and FBOT@Home team member",
+        links: [
+            {description: "instagram", url: "https://www.instagram.com/fernandopm28/profilecard/?igsh=MXdmYncza2cyaTJ5cw==", icon: "fa-brands:instagram"},
+            {description: "linkedin", url: "https://www.linkedin.com/in/fernando-piva-mendes-a66b75249", icon: "fa-brands:linkedin"},
+            {description: "github", url: "https://github.com/FernandoPM28", icon: "fa-brands:github"},
+        ]
+    },
+    {
         img: "/profiles/Igor.jpeg",
         name: "Igor Pardo Maurell",
         title: "M.Sc Computer Engineering",
@@ -247,6 +286,12 @@ const members: MemberCardProps[] = [
 ]
 
 const publications: PublicationItem[] = [
+
+    {
+        title: "SHARK: STABLE HOVERBOARD-DRIVEN AUTONOMOUS ROBOT KIT",
+        description: "Autonomous hoverboard-driven made with Hoverboard",
+        date: "2024", url: "https://www.even3.com.br/anais/v-brahur-vi-brasero/869310-shark--stable-hoverboard-driven-autonomous-robot-kit/"
+    },
     {
         title: "Team Description Paper 2022",
         description: "Brazilian Robotics Competition @Home 2022",
